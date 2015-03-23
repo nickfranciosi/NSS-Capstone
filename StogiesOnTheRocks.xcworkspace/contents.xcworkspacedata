@@ -4,7 +4,4 @@
    <FileRef
       location = "group:SOTR.xcodeproj">
    </FileRef>
-   <FileRef
-      location = "group:SOTR/SOTR.xcodeproj">
-   </FileRef>
 </Workspace>

@@ -14,19 +14,22 @@ class ItemTableViewController: UITableViewController, UISearchBarDelegate, UISea
     var filteredCigars = [Cigar]()
     var sectionHeaders = [String]()
     var tableData = [String : [String]]()
+    var defaultFlavorProfile = FlavorProfile(salty: 0, sweet: 2, bitter: 0, spicy: 3, umami: 1);
+    var spicyFlavorProfile = FlavorProfile(salty: 1, sweet: 0, bitter: 0, spicy: 5, umami: 1);
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.cigars = [
-            Cigar(category:"A", name:"Aspen Cigar"),
-            Cigar(category:"A", name:"Arkham"),
-            Cigar(category:"A", name:"Ass Guy Cigars"),
-            Cigar(category:"B", name:"Bollipop"),
-            Cigar(category:"D", name:"Digar cane"),
-            Cigar(category:"D", name:"Daw breaker"),
-            Cigar(category:"G", name:"Garamel"),
-            Cigar(category:"G", name:"Gour chew"),
-            Cigar(category:"G", name:"Gummi bear")
+            Cigar(name:"Aspen Cigar", flavor: spicyFlavorProfile),
+            Cigar(name:"Arkham", flavor: defaultFlavorProfile),
+            Cigar(name:"Ass Guy Cigars", flavor: defaultFlavorProfile),
+            Cigar(name:"Bollipop", flavor: defaultFlavorProfile),
+            Cigar(name:"Digar cane", flavor: defaultFlavorProfile),
+            Cigar(name:"Daw breaker",flavor: defaultFlavorProfile ),
+            Cigar(name:"Garamel", flavor: defaultFlavorProfile),
+            Cigar(name:"Gour chew", flavor: defaultFlavorProfile),
+            Cigar(name:"Gummi bear", flavor: spicyFlavorProfile)
         ]
         
         tableData = buildTableData(cigars)
@@ -90,53 +93,37 @@ class ItemTableViewController: UITableViewController, UISearchBarDelegate, UISea
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if segue.identifier == "itemDetail" {
-            let itemDetailViewController = segue.destinationViewController as! UIViewController
+            let itemDetailViewController = segue.destinationViewController as! DetailViewController
             let indexPath = self.tableView.indexPathForSelectedRow()!
             let destinationTitle = tableData[sectionHeaders[indexPath.section]]![indexPath.row]
+            let chosenCigar = filter(cigars) { $0.name == destinationTitle }[0]
             itemDetailViewController.title = destinationTitle
+            itemDetailViewController.flavors = chosenCigar.flavor
         }
     }
 
     
     
-    func searchDisplayController(controller: UISearchDisplayController, shouldReloadTableForSearchString searchString: String!) -> Bool {
-        filterContentForSearchText(searchString)
-        return true
-    }
+//    func searchDisplayController(controller: UISearchDisplayController, shouldReloadTableForSearchString searchString: String!) -> Bool {
+//        filterContentForSearchText(searchString)
+//        return true
+//    }
+//    
+//    func searchDisplayController(controller: UISearchDisplayController, shouldReloadTableForSearchScope searchOption: Int) -> Bool {
+//        self.filterContentForSearchText(self.searchDisplayController!.searchBar.text)
+//        return true
+//    }
+//    
+
     
-    func searchDisplayController(controller: UISearchDisplayController, shouldReloadTableForSearchScope searchOption: Int) -> Bool {
-        self.filterContentForSearchText(self.searchDisplayController!.searchBar.text)
-        return true
-    }
+//    func filterContentForSearchText(searchString: String, scope: String = "All") {
+//        filteredCigars = cigars.filter({(cigar: Cigar) -> Bool in
+//            let categoryMatch = (scope == "All") || (cigar.category == scope)
+//            let stringMatch = cigar.name.rangeOfString(searchString)
+//            return stringMatch != nil
+//        })
+//    }
     
-    
-    func getUniqueCategories(items: [Cigar])-> [String]{
-        
-        var categories = [String]()
-        for item in items {
-            categories.append(item.category)
-        }
-        categories = distinct(categories)
-        return categories
-    }
-    
-    func filterContentForSearchText(searchString: String, scope: String = "All") {
-        filteredCigars = cigars.filter({(cigar: Cigar) -> Bool in
-            let categoryMatch = (scope == "All") || (cigar.category == scope)
-            let stringMatch = cigar.name.rangeOfString(searchString)
-            return stringMatch != nil
-        })
-    }
-    
-    func distinct<T: Equatable>(source: [T]) -> [T] {
-        var unique = [T]()
-        for item in source {
-            if !contains(unique, item) {
-                unique.append(item)
-            }
-        }
-        return unique
-    }
     
     func buildTableData(items: [Cigar]) -> [String: [String]]{
         var itemsWithSectionKeys = [String : [String]]()

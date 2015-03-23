@@ -11,6 +11,15 @@ import Foundation
 
 
 struct Cigar {
-    let category : String
     let name : String
+    let flavor: FlavorProfile
+}
+
+
+struct FlavorProfile {
+    let salty : Int
+    let sweet : Int
+    let bitter : Int
+    let spicy : Int
+    let umami : Int
 }
