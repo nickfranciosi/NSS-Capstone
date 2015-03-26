@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,6 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor(red: 252/255, green: 190/255, blue: 3/255, alpha: 1)], forState:.Selected)
         UITabBar.appearance().selectedImageTintColor = UIColor(red: 252/255, green: 190/255, blue: 3/255, alpha: 1)
         return true
+        
+        
     }
 
     func applicationWillResignActive(application: UIApplication) {

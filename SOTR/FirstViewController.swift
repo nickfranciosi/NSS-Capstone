@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class FirstViewController: UIViewController {
     
@@ -14,8 +16,14 @@ class FirstViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        var data = Alamofire.request(.GET, "http://stogiesontherocks.com/api/v1/spirits").responseJSON { (request, response, data, error) in
+            let spiritJson = JSON(data!)
+            for (index: String, spirit: JSON) in spiritJson{
+                println(spirit["name"])
+            }
+        }
         
-       
+        
     }
 
 
