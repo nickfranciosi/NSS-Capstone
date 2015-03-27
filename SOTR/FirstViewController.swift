@@ -18,6 +18,8 @@ class FirstViewController: UIViewController {
         
         var data = Alamofire.request(.GET, "http://stogiesontherocks.com/api/v1/spirits").responseJSON { (request, response, data, error) in
             let spiritJson = JSON(data!)
+            
+            var testCigar = spiritJson[0]
             for (index: String, spirit: JSON) in spiritJson{
                 println(spirit["name"])
             }
