@@ -10,11 +10,32 @@ import Foundation
 
 
 
-struct Cigar {
-    let name : String
-    let flavor: FlavorProfile
+
+class StogiesItem {
+    let name : String!
+    let flavor: FlavorProfile!
+    var type: ItemType?
+    
+    init(name: String, flavor: FlavorProfile){
+        self.name = name
+        self.flavor = flavor
+    }
 }
 
+class Spirit: StogiesItem {
+    override init(name: String, flavor: FlavorProfile){
+        super.init(name: name, flavor: flavor)
+        self.type = .Spirit
+    }
+
+}
+
+class Cigar: StogiesItem {
+    override init(name: String, flavor: FlavorProfile){
+        super.init(name: name, flavor: flavor)
+        self.type = .Cigar
+    }
+}
 
 struct FlavorProfile {
     let salty : Int

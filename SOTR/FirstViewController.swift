@@ -12,20 +12,12 @@ import SwiftyJSON
 
 class FirstViewController: UIViewController {
     
-
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var data = Alamofire.request(.GET, "http://stogiesontherocks.com/api/v1/spirits").responseJSON { (request, response, data, error) in
-            let spiritJson = JSON(data!)
-            
-            var testCigar = spiritJson[0]
-            for (index: String, spirit: JSON) in spiritJson{
-                println(spirit["name"])
-            }
-        }
-        
-        
+         self.navigationController!.navigationBar.barTintColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1)
+         self.navigationController!.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Helvetica Neue", size: 15)!]
     }
 
 
@@ -33,8 +25,23 @@ class FirstViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let segueType = segue.identifier {
+            var flavorProfileVC: FlavorProfileSliderViewController = segue.destinationViewController as! FlavorProfileSliderViewController
+            if segueType == "cigarSegue"{
+                flavorProfileVC.typeChoice = ItemType.Cigar
+            }
+            if segueType == "spiritSegue"{
+                flavorProfileVC.typeChoice = ItemType.Spirit
+            }
+        }
+       
+        
+    }
+    
+
+
+  
 }
 

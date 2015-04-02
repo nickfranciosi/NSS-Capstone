@@ -10,34 +10,30 @@ import UIKit
 
 class ItemTableViewController: UITableViewController, UISearchBarDelegate, UISearchDisplayDelegate {
 
-    var cigars = [Cigar]()
-    var filteredCigars = [Cigar]()
+    var items = [StogiesItem]()
+    var filteredItems = [StogiesItem]()
     var sectionHeaders = [String]()
     var tableData = [String : [String]]()
     var defaultFlavorProfile = FlavorProfile(salty: 0, sweet: 2, bitter: 0, spicy: 3, umami: 1);
     var spicyFlavorProfile = FlavorProfile(salty: 1, sweet: 0, bitter: 0, spicy: 5, umami: 1);
     
+    var receivedString: String?
+    var receivedScores: [String:Int]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.cigars = [
-            Cigar(name:"Aspen Cigar", flavor: spicyFlavorProfile),
-            Cigar(name:"Arkham", flavor: defaultFlavorProfile),
-            Cigar(name:"Ass Guy Cigars", flavor: defaultFlavorProfile),
-            Cigar(name:"Bollipop", flavor: defaultFlavorProfile),
-            Cigar(name:"Digar cane", flavor: defaultFlavorProfile),
-            Cigar(name:"Daw breaker",flavor: defaultFlavorProfile ),
-            Cigar(name:"Garamel", flavor: defaultFlavorProfile),
-            Cigar(name:"Gour chew", flavor: defaultFlavorProfile),
-            Cigar(name:"Gummi bear", flavor: spicyFlavorProfile)
-        ]
         
-        tableData = buildTableData(cigars)
+        tableData = buildTableData(items)
         
         // Reload the table
         self.tableView.reloadData()
         
         sectionHeaders = tableData.keys.array.sorted(<)
+        sectionHeaders = findValueAndAddToEnd(needle: "#", haystack: self.sectionHeaders)
+        
+        if let filter = self.receivedScores {
+            println("\(filter)")
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -62,7 +58,7 @@ class ItemTableViewController: UITableViewController, UISearchBarDelegate, UISea
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
         if tableView == self.searchDisplayController!.searchResultsTableView{
-            return filteredCigars.count
+            return filteredItems.count
         }else {
             return tableData[sectionHeaders[section]]!.count
         }
@@ -80,7 +76,7 @@ class ItemTableViewController: UITableViewController, UISearchBarDelegate, UISea
         let cigarName : String!
         
         if tableView == self.searchDisplayController!.searchResultsTableView {
-            cigarName = filteredCigars[indexPath.row].name
+            cigarName = filteredItems[indexPath.row].name
         }else{
             cigarName = tableData[sectionHeaders[indexPath.section]]![indexPath.row]
         }
@@ -96,9 +92,9 @@ class ItemTableViewController: UITableViewController, UISearchBarDelegate, UISea
             let itemDetailViewController = segue.destinationViewController as! DetailViewController
             let indexPath = self.tableView.indexPathForSelectedRow()!
             let destinationTitle = tableData[sectionHeaders[indexPath.section]]![indexPath.row]
-            let chosenCigar = filter(cigars) { $0.name == destinationTitle }[0]
+            let chosenItem = filter(items) { $0.name == destinationTitle }[0]
             itemDetailViewController.title = destinationTitle
-            itemDetailViewController.flavors = chosenCigar.flavor
+            itemDetailViewController.currentItem = chosenItem
         }
     }
 
@@ -125,7 +121,7 @@ class ItemTableViewController: UITableViewController, UISearchBarDelegate, UISea
 //    }
     
     
-    func buildTableData(items: [Cigar]) -> [String: [String]]{
+    func buildTableData(items: [StogiesItem]) -> [String: [String]]{
         var itemsWithSectionKeys = [String : [String]]()
         
         for item in items{
@@ -152,6 +148,18 @@ class ItemTableViewController: UITableViewController, UISearchBarDelegate, UISea
             lettersArray[0] = "#"
         }
         return lettersArray[0]
+    }
+    
+    func findValueAndAddToEnd(#needle: String, haystack: [String]) -> [String] {
+        
+        var arrayCopy = haystack
+        
+        if var index = find(arrayCopy, needle){
+            var foundItem = arrayCopy.removeAtIndex(index)
+            arrayCopy.append(foundItem)
+        }
+        
+        return arrayCopy
     }
     
 }

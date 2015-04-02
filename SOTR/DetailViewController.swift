@@ -15,13 +15,19 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var sweetValue: UILabel!
     @IBOutlet weak var umamiValue: UILabel!
     @IBOutlet weak var spicyValue: UILabel!
-    @IBOutlet weak var cigarName: UILabel!
+    
+    @IBOutlet weak var itemName: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
     
     var flavors: FlavorProfile!
+    var name: String!
+    
+    var currentItem: StogiesItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         updateFlavorValues()
+        updateName()
         // Do any additional setup after loading the view.
         
         
@@ -40,12 +46,19 @@ class DetailViewController: UIViewController {
     }
     
     func updateFlavorValues(){
-        self.bitterValue.text! = "\(flavors.bitter)"
-        self.saltyValue.text! = "\(flavors.salty)"
-        self.sweetValue.text! = "\(flavors.sweet)"
-        self.umamiValue.text! = "\(flavors.umami)"
-        self.spicyValue.text! = "\(flavors.spicy)"
-        self.cigarName.text! = "default"
+        self.bitterValue.text! = "\(currentItem.flavor.bitter)"
+        self.saltyValue.text! = "\(currentItem.flavor.salty)"
+        self.sweetValue.text! = "\(currentItem.flavor.sweet)"
+        self.umamiValue.text! = "\(currentItem.flavor.umami)"
+        self.spicyValue.text! = "\(currentItem.flavor.spicy)"
+
+        println(currentItem)
+    }
+    
+    func updateName(){
+        self.nameLabel.text! = "\(currentItem.type!.rawValue.capitalizedString) name:"
+        self.itemName.text! = "\(currentItem.name)"
+        
     }
     
 }
