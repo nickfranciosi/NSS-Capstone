@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5C3576501ACC71F50036D725 /* FetchesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C35764F1ACC71F50036D725 /* FetchesData.swift */; };
 		5C5C68031ACD85B50073F5D4 /* FindsPairing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5C68021ACD85B50073F5D4 /* FindsPairing.swift */; };
+		5C8744741AD303D2002DB2E8 /* ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C8744731AD303D2002DB2E8 /* ionicons.ttf */; };
 		5C945DBF1A407E310012DC72 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C945DBE1A407E310012DC72 /* AppDelegate.swift */; };
 		5C945DC11A407E310012DC72 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C945DC01A407E310012DC72 /* FirstViewController.swift */; };
 		5C945DC31A407E310012DC72 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C945DC21A407E310012DC72 /* SecondViewController.swift */; };
@@ -36,6 +37,8 @@
 /* Begin PBXFileReference section */
 		5C35764F1ACC71F50036D725 /* FetchesData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchesData.swift; sourceTree = "<group>"; };
 		5C5C68021ACD85B50073F5D4 /* FindsPairing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindsPairing.swift; sourceTree = "<group>"; };
+		5C8744721AD2EEF9002DB2E8 /* FontAwesome-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FontAwesome-Bridging-Header.h"; sourceTree = "<group>"; };
+		5C8744731AD303D2002DB2E8 /* ionicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = ionicons.ttf; path = Pods/FontAwesomeKit/FontAwesomeKit/ionicons.ttf; sourceTree = "<group>"; };
 		5C945DB91A407E310012DC72 /* SOTR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SOTR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C945DBD1A407E310012DC72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5C945DBE1A407E310012DC72 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +89,8 @@
 		5C945DB01A407E310012DC72 = {
 			isa = PBXGroup;
 			children = (
+				5C8744731AD303D2002DB2E8 /* ionicons.ttf */,
+				5C8744721AD2EEF9002DB2E8 /* FontAwesome-Bridging-Header.h */,
 				5C945DBB1A407E310012DC72 /* SOTR */,
 				5C945DD31A407E310012DC72 /* SOTRTests */,
 				5C945DBA1A407E310012DC72 /* Products */,
@@ -240,6 +245,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C8744741AD303D2002DB2E8 /* ionicons.ttf in Resources */,
 				5C945DC61A407E310012DC72 /* Main.storyboard in Resources */,
 				5C945DCB1A407E310012DC72 /* LaunchScreen.xib in Resources */,
 				5C945DC81A407E310012DC72 /* Images.xcassets in Resources */,
@@ -443,8 +449,10 @@
 				INFOPLIST_FILE = SOTR/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				New_Setting = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "FontAwesome-Bridging-Header.h";
 				VALID_ARCHS = "arm64 armv7 armv7s arm6";
 			};
 			name = Debug;
@@ -457,8 +465,10 @@
 				INFOPLIST_FILE = SOTR/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				New_Setting = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "FontAwesome-Bridging-Header.h";
 				VALID_ARCHS = "arm64 armv7 armv7s arm6";
 			};
 			name = Release;
