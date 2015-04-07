@@ -30,8 +30,6 @@ class DetailViewController: UIViewController, LineChartDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateFlavorValues()
-        updateName()
         var views: [String: AnyObject] = [:]
         
         label.text = "\(currentItem.name)"
@@ -68,7 +66,6 @@ class DetailViewController: UIViewController, LineChartDelegate {
         lineChart.y.labels.visible = true
         lineChart.addLine(maxXaxisSetter)
         lineChart.addLine(data)
-        lineChart.addLine(data2)
         
         
         lineChart.setTranslatesAutoresizingMaskIntoConstraints(false)
@@ -82,7 +79,7 @@ class DetailViewController: UIViewController, LineChartDelegate {
     }
     
     override func viewWillAppear(animated: Bool) {
-        updateFlavorValues()
+       
     }
     
     
@@ -93,27 +90,14 @@ class DetailViewController: UIViewController, LineChartDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    func updateFlavorValues(){
-//        self.bitterValue.text! = "\(currentItem.flavor.bitter)"
-//        self.saltyValue.text! = "\(currentItem.flavor.salty)"
-//        self.sweetValue.text! = "\(currentItem.flavor.sweet)"
-//        self.umamiValue.text! = "\(currentItem.flavor.umami)"
-//        self.spicyValue.text! = "\(currentItem.flavor.spicy)"
-
-        println(currentItem)
-    }
     
-    func updateName(){
-//        self.nameLabel.text! = "\(currentItem.type!.rawValue.capitalizedString) name:"
-//        self.itemName.text! = "\(currentItem.name)"
-        
-    }
+
     
     /**
     * Line chart delegate method.
     */
     func didSelectDataPoint(x: CGFloat, yValues: Array<CGFloat>) {
-        label.text = "x: \(x)     y: \(yValues)"
+        
     }
     
     

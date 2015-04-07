@@ -14,8 +14,7 @@ class ItemTableViewController: UITableViewController, UISearchBarDelegate, UISea
     var filteredItems = [StogiesItem]()
     var sectionHeaders = [String]()
     var tableData = [String : [String]]()
-    var defaultFlavorProfile = FlavorProfile(salty: 0, sweet: 2, bitter: 0, spicy: 3, umami: 1);
-    var spicyFlavorProfile = FlavorProfile(salty: 1, sweet: 0, bitter: 0, spicy: 5, umami: 1);
+
     
     var receivedString: String?
     var receivedScores: [String:Int]?
@@ -73,16 +72,16 @@ class ItemTableViewController: UITableViewController, UISearchBarDelegate, UISea
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCellWithIdentifier("itemCell", forIndexPath: indexPath) as! UITableViewCell
         
-        let cigarName : String!
+        let itemName : String!
         
         if tableView == self.searchDisplayController!.searchResultsTableView {
-            cigarName = filteredItems[indexPath.row].name
+            itemName = filteredItems[indexPath.row].name
         }else{
-            cigarName = tableData[sectionHeaders[indexPath.section]]![indexPath.row]
+            itemName = tableData[sectionHeaders[indexPath.section]]![indexPath.row]
         }
         
         
-        cell.textLabel!.text = cigarName
+        cell.textLabel!.text = itemName
         
         return cell
     }
@@ -100,25 +99,24 @@ class ItemTableViewController: UITableViewController, UISearchBarDelegate, UISea
 
     
     
-//    func searchDisplayController(controller: UISearchDisplayController, shouldReloadTableForSearchString searchString: String!) -> Bool {
-//        filterContentForSearchText(searchString)
-//        return true
-//    }
-//    
-//    func searchDisplayController(controller: UISearchDisplayController, shouldReloadTableForSearchScope searchOption: Int) -> Bool {
-//        self.filterContentForSearchText(self.searchDisplayController!.searchBar.text)
-//        return true
-//    }
-//    
+    func searchDisplayController(controller: UISearchDisplayController, shouldReloadTableForSearchString searchString: String!) -> Bool {
+        self.filterContentForSearchText(searchString)
+        return true
+    }
+    
+    func searchDisplayController(controller: UISearchDisplayController, shouldReloadTableForSearchScope searchOption: Int) -> Bool {
+        self.filterContentForSearchText(self.searchDisplayController!.searchBar.text)
+        return true
+    }
+    
 
     
-//    func filterContentForSearchText(searchString: String, scope: String = "All") {
-//        filteredCigars = cigars.filter({(cigar: Cigar) -> Bool in
-//            let categoryMatch = (scope == "All") || (cigar.category == scope)
-//            let stringMatch = cigar.name.rangeOfString(searchString)
-//            return stringMatch != nil
-//        })
-//    }
+    func filterContentForSearchText(searchString: String, scope: String = "All") {
+        filteredItems = items.filter({(item: StogiesItem) -> Bool in
+            let stringMatch = item.name.rangeOfString(searchString)
+            return stringMatch != nil
+        })
+    }
     
     
     func buildTableData(items: [StogiesItem]) -> [String: [String]]{

@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor(red: 252/255, green: 190/255, blue: 3/255, alpha: 1)], forState:.Selected)
-        UITabBar.appearance().selectedImageTintColor = UIColor(red: 252/255, green: 190/255, blue: 3/255, alpha: 1)
+//        UITabBar.appearance().selectedImageTintColor = UIColor(red: 252/255, green: 190/255, blue: 3/255, alpha: 1)
         
         
         

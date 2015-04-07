@@ -57,9 +57,11 @@ class FlavorProfileSliderViewController: UIViewController {
         Alamofire.request(.GET, "http://stogiesontherocks.com/api/v1/" + typeChoice.rawValue).responseJSON { (request, response, data, error) in
             let itemJson = JSON(data!)
             for (index: String, item: JSON) in itemJson{
-                var itemName = item["name"].stringValue
                 var thisItem: StogiesItem!
+                
+                var itemName = item["name"].stringValue
                 var itemFlavorProfile = FlavorProfile(salty: item["salty"].intValue, sweet: item["sweet"].intValue,bitter: item["bitter"].intValue,spicy: item["spicy"].intValue,umami: item["umami"].intValue)
+                
                 if self.typeChoice == ItemType.Cigar{
                     thisItem = Cigar(name: itemName, flavor: itemFlavorProfile)
                 }else{
