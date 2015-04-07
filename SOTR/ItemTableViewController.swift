@@ -8,19 +8,40 @@
 
 import UIKit
 
-class ItemTableViewController: UITableViewController, UISearchBarDelegate, UISearchDisplayDelegate {
+class ItemTableViewController: UITableViewController, UISearchControllerDelegate, UISearchResultsUpdating{
 
     var items = [StogiesItem]()
-    var filteredItems = [StogiesItem]()
+    
     var sectionHeaders = [String]()
     var tableData = [String : [String]]()
+    var filteredData:[String] = [String](){
+        didSet  {self.tableView.reloadData()}
+    }
+
 
     
     var receivedString: String?
     var receivedScores: [String:Int]?
     
+  
+    var itemSearchController =  UISearchController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        itemSearchController =  ({
+            
+        let controller = UISearchController(searchResultsController: nil)
+        controller.searchResultsUpdater = self
+        controller.hidesNavigationBarDuringPresentation = false
+        controller.dimsBackgroundDuringPresentation = false
+        controller.searchBar.searchBarStyle = UISearchBarStyle.Default
+        controller.searchBar.sizeToFit()
+        self.tableView.tableHeaderView = controller.searchBar
+        
+        return controller
+        })()
+        
         
         tableData = buildTableData(items)
         
@@ -30,10 +51,10 @@ class ItemTableViewController: UITableViewController, UISearchBarDelegate, UISea
         sectionHeaders = tableData.keys.array.sorted(<)
         sectionHeaders = findValueAndAddToEnd(needle: "#", haystack: self.sectionHeaders)
         
-        if let filter = self.receivedScores {
-            println("\(filter)")
-        }
+ 
     }
+    
+  
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -46,21 +67,35 @@ class ItemTableViewController: UITableViewController, UISearchBarDelegate, UISea
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Potentially incomplete method implementation.
         // Return the number of sections.
-        return sectionHeaders.count
+       
+        if (self.itemSearchController.active){
+            return 1
+        }else{
+             return sectionHeaders.count
+        }
+       
+        
+        
     }
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return sectionHeaders[section]
+        if (self.itemSearchController.active){
+            return nil
+        }else{
+            return sectionHeaders[section]
+        }
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        if tableView == self.searchDisplayController!.searchResultsTableView{
-            return filteredItems.count
-        }else {
+       
+        if (self.itemSearchController.active){
+            return filteredData.count
+        }else{
             return tableData[sectionHeaders[section]]!.count
         }
+        
         
     }
   
@@ -74,8 +109,8 @@ class ItemTableViewController: UITableViewController, UISearchBarDelegate, UISea
         
         let itemName : String!
         
-        if tableView == self.searchDisplayController!.searchResultsTableView {
-            itemName = filteredItems[indexPath.row].name
+        if (self.itemSearchController.active){
+            itemName = filteredData[indexPath.row]
         }else{
             itemName = tableData[sectionHeaders[indexPath.section]]![indexPath.row]
         }
@@ -86,37 +121,31 @@ class ItemTableViewController: UITableViewController, UISearchBarDelegate, UISea
         return cell
     }
     
+    func updateSearchResultsForSearchController(searchController: UISearchController) {
+        let searchPredicate = NSPredicate(format: "SELF CONTAINS[c] %@", searchController.searchBar.text)
+        var tableDataArray = flatten(self.tableData.values.array)
+        tableDataArray = tableDataArray.sorted({$0 < $1})
+        let array = (tableDataArray as NSArray).filteredArrayUsingPredicate(searchPredicate)
+        self.filteredData = array as! [String]
+    }
+    
+   
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if segue.identifier == "itemDetail" {
             let itemDetailViewController = segue.destinationViewController as! DetailViewController
             let indexPath = self.tableView.indexPathForSelectedRow()!
-            let destinationTitle = tableData[sectionHeaders[indexPath.section]]![indexPath.row]
+            let destinationTitle: String!
+            if (self.itemSearchController.active){
+                destinationTitle = filteredData[indexPath.row]
+            }else{
+                destinationTitle = tableData[sectionHeaders[indexPath.section]]![indexPath.row]
+            }
             let chosenItem = filter(items) { $0.name == destinationTitle }[0]
             itemDetailViewController.title = destinationTitle
             itemDetailViewController.currentItem = chosenItem
         }
     }
 
-    
-    
-    func searchDisplayController(controller: UISearchDisplayController, shouldReloadTableForSearchString searchString: String!) -> Bool {
-        self.filterContentForSearchText(searchString)
-        return true
-    }
-    
-    func searchDisplayController(controller: UISearchDisplayController, shouldReloadTableForSearchScope searchOption: Int) -> Bool {
-        self.filterContentForSearchText(self.searchDisplayController!.searchBar.text)
-        return true
-    }
-    
-
-    
-    func filterContentForSearchText(searchString: String, scope: String = "All") {
-        filteredItems = items.filter({(item: StogiesItem) -> Bool in
-            let stringMatch = item.name.rangeOfString(searchString)
-            return stringMatch != nil
-        })
-    }
     
     
     func buildTableData(items: [StogiesItem]) -> [String: [String]]{
@@ -158,6 +187,10 @@ class ItemTableViewController: UITableViewController, UISearchBarDelegate, UISea
         }
         
         return arrayCopy
+    }
+    
+    func flatten<T> (array: Array<[T]>) -> [T] {
+        return array.reduce([T](), combine: +)
     }
     
 }
