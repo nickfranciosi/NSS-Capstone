@@ -18,7 +18,8 @@ class ItemTableViewController: UITableViewController, UISearchControllerDelegate
         didSet  {self.tableView.reloadData()}
     }
 
-
+    var grayColor: UIColor = UIColor(red: 76/255, green: 72/255, blue: 64/255, alpha: 1.0)
+    var darkGrayColor: UIColor = UIColor(red: 48/255, green: 43/255, blue: 38/255, alpha: 1.0)
     
     var receivedString: String?
     var receivedScores: [String:Int]?
@@ -26,9 +27,14 @@ class ItemTableViewController: UITableViewController, UISearchControllerDelegate
   
     var itemSearchController =  UISearchController()
     
+    override func viewWillAppear(animated: Bool) {
+        println(receivedScores)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.tableView.backgroundColor = darkGrayColor
+        self.tableView.tableFooterView = UIView(frame:CGRectZero)
         itemSearchController =  ({
             
         let controller = UISearchController(searchResultsController: nil)
@@ -37,6 +43,8 @@ class ItemTableViewController: UITableViewController, UISearchControllerDelegate
         controller.dimsBackgroundDuringPresentation = false
         controller.searchBar.searchBarStyle = UISearchBarStyle.Default
         controller.searchBar.sizeToFit()
+        controller.searchBar.tintColor = self.darkGrayColor
+            
         self.tableView.tableHeaderView = controller.searchBar
         
         return controller
@@ -52,6 +60,10 @@ class ItemTableViewController: UITableViewController, UISearchControllerDelegate
         sectionHeaders = findValueAndAddToEnd(needle: "#", haystack: self.sectionHeaders)
         
  
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        itemSearchController.active = false
     }
     
   
@@ -78,13 +90,18 @@ class ItemTableViewController: UITableViewController, UISearchControllerDelegate
         
     }
     
-    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
         if (self.itemSearchController.active){
             return nil
-        }else{
-            return sectionHeaders[section]
         }
+        var label : UILabel = UILabel()
+        label.text = sectionHeaders[section]
+        label.textColor = UIColor.whiteColor()
+        label.backgroundColor = grayColor
+        return label
     }
+    
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
@@ -101,7 +118,12 @@ class ItemTableViewController: UITableViewController, UISearchControllerDelegate
   
     
     override func sectionIndexTitlesForTableView(tableView: UITableView) -> [AnyObject]! {
-        return sectionHeaders
+        if (self.itemSearchController.active){
+            return nil
+        }else{
+            return sectionHeaders
+        }
+        
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -117,7 +139,7 @@ class ItemTableViewController: UITableViewController, UISearchControllerDelegate
         
         
         cell.textLabel!.text = itemName
-        
+        cell.textLabel!.textColor = grayColor
         return cell
     }
     
@@ -126,11 +148,17 @@ class ItemTableViewController: UITableViewController, UISearchControllerDelegate
         var tableDataArray = flatten(self.tableData.values.array)
         tableDataArray = tableDataArray.sorted({$0 < $1})
         let array = (tableDataArray as NSArray).filteredArrayUsingPredicate(searchPredicate)
-        self.filteredData = array as! [String]
+        if(searchController.searchBar.text.isEmpty){
+           self.filteredData = tableDataArray
+        }else{
+            self.filteredData = array as! [String]
+        }
+        
     }
     
    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        
         if segue.identifier == "itemDetail" {
             let itemDetailViewController = segue.destinationViewController as! DetailViewController
             let indexPath = self.tableView.indexPathForSelectedRow()!
@@ -143,6 +171,7 @@ class ItemTableViewController: UITableViewController, UISearchControllerDelegate
             let chosenItem = filter(items) { $0.name == destinationTitle }[0]
             itemDetailViewController.title = destinationTitle
             itemDetailViewController.currentItem = chosenItem
+            itemSearchController.active = false
         }
     }
 

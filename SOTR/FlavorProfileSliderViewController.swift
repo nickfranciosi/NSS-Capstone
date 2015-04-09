@@ -75,6 +75,10 @@ class FlavorProfileSliderViewController: UIViewController {
         searchBar.placeholder! = "Search \(typeChoice.rawValue.capitalizedString)"
         
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        flavorChoices = nil
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -94,29 +98,25 @@ class FlavorProfileSliderViewController: UIViewController {
         
         label!.text = String(rating)
     }
-
-    @IBAction func allFilterTap(sender: AnyObject) {
-        performSegueWithIdentifier("listViewSegue", sender: sender)
-    }
-    @IBAction func favoriteFilterTap(sender: AnyObject) {
-         performSegueWithIdentifier("listViewSegue", sender: sender)
-    }
-    @IBAction func recommendedFilterTap(sender: AnyObject) {
-         performSegueWithIdentifier("listViewSegue", sender: sender)
-    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         var tableVC: ItemTableViewController = segue.destinationViewController as! ItemTableViewController
         var filterTitle = sender?.titleLabel!!.text
-        flavorChoices = [
-            "salty" : Int(saltySlider.value),
-            "sweet" : Int(sweetSlider.value),
-            "bitter" : Int(bitterSlider.value),
-            "spicy" : Int(spicySlider.value),
-            "umami" : Int(umamiSlider.value)
-        ]
+        
+        if (segue.identifier == "slideResultsSegue"){
+            
+            flavorChoices = [
+                "salty" : Int(saltySlider.value),
+                "sweet" : Int(sweetSlider.value),
+                "bitter" : Int(bitterSlider.value),
+                "spicy" : Int(spicySlider.value),
+                "umami" : Int(umamiSlider.value)
+            ]
+        }
+        
         tableVC.receivedString = filterTitle
         tableVC.receivedScores = flavorChoices
+        
         tableVC.items = self.stogiesItems
         
         

@@ -498,7 +498,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="RRZ-fl-Qhm" kind="show" identifier="listViewSegue" id="jjx-kK-8Qf"/>
+                                            <segue destination="RRZ-fl-Qhm" kind="show" identifier="slideResultsSegue" id="n3E-9f-C6V"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -559,7 +559,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <action selector="allFilterTap:" destination="ARw-D0-eUI" eventType="touchUpInside" id="wb0-J8-lVY"/>
+                                    <segue destination="RRZ-fl-Qhm" kind="show" identifier="allSeque" id="bnm-R4-aLk"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aZ9-tS-W57">
@@ -579,7 +579,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <action selector="recommendedFilterTap:" destination="ARw-D0-eUI" eventType="touchUpInside" id="hDp-6J-agJ"/>
+                                    <segue destination="RRZ-fl-Qhm" kind="show" identifier="recommendedSegue" id="BEq-61-7oH"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HLA-cy-D8P">
@@ -599,7 +599,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <action selector="favoriteFilterTap:" destination="ARw-D0-eUI" eventType="touchUpInside" id="aej-b8-NYe"/>
+                                    <segue destination="RRZ-fl-Qhm" kind="show" identifier="favoritesSeque" id="vVw-BS-G26"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -650,12 +650,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="separatorColor" red="0.29803921568627451" green="0.28235294117647058" blue="0.25098039215686274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="sectionIndexBackgroundColor" red="0.18823529411764706" green="0.16862745098039217" blue="0.14901960784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="itemCell" id="6Am-cG-cvD">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6Am-cG-cvD" id="yHK-Xf-IKG">
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.18823529410000001" green="0.16862745100000001" blue="0.14901960780000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <segue destination="fVj-EJ-phR" kind="show" identifier="itemDetail" id="gRe-oG-bZX"/>
                                 </connections>
@@ -682,8 +685,23 @@
                     <view key="view" contentMode="scaleToFill" id="jRO-Gx-aQA">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3vm-Tx-P1f">
+                                <rect key="frame" x="16" y="74" width="568" height="300"/>
+                                <color key="backgroundColor" red="0.18823529410000001" green="0.16862745100000001" blue="0.14901960780000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.29803921570000003" green="0.28235294119999998" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="3vm-Tx-P1f" firstAttribute="height" secondItem="jRO-Gx-aQA" secondAttribute="height" multiplier="1:2" id="AWC-AL-cVa"/>
+                            <constraint firstItem="3vm-Tx-P1f" firstAttribute="top" secondItem="nk9-hl-762" secondAttribute="bottom" constant="10" id="b2H-4q-pst"/>
+                            <constraint firstItem="3vm-Tx-P1f" firstAttribute="trailing" secondItem="jRO-Gx-aQA" secondAttribute="trailingMargin" id="cUU-3k-KdM"/>
+                            <constraint firstItem="3vm-Tx-P1f" firstAttribute="leading" secondItem="jRO-Gx-aQA" secondAttribute="leadingMargin" id="xM5-Gx-fbT"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="chartViewContainer" destination="3vm-Tx-P1f" id="Rhi-Ne-dib"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OUk-QR-u9A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -854,6 +872,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="lYZ-q3-mPq"/>
+        <segue reference="n3E-9f-C6V"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.98823529409999999" green="0.74509803919999995" blue="0.01176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

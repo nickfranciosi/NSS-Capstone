@@ -518,6 +518,7 @@ public class LineChart: UIView {
             var xValue = self.x.scale(CGFloat(index)) + x.axis.inset - (width / 2)
             var label = UILabel(frame: CGRect(x: xValue, y: y, width: width, height: x.axis.inset))
             label.font = UIFont.preferredFontForTextStyle(UIFontTextStyleCaption2)
+            label.textColor = UIColor.whiteColor()
             label.textAlignment = .Center
             if (x.labels.values.count != 0) {
                 text = x.labels.values[index]
@@ -541,6 +542,7 @@ public class LineChart: UIView {
             yValue = self.bounds.height - self.y.scale(i) - (y.axis.inset * 1.5)
             var label = UILabel(frame: CGRect(x: 0, y: yValue, width: y.axis.inset, height: y.axis.inset))
             label.font = UIFont.preferredFontForTextStyle(UIFontTextStyleCaption2)
+            label.textColor = UIColor.whiteColor()
             label.textAlignment = .Center
             label.text = String(Int(round(i)))
             self.addSubview(label)
