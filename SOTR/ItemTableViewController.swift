@@ -26,10 +26,7 @@ class ItemTableViewController: UITableViewController, UISearchControllerDelegate
     
   
     var itemSearchController =  UISearchController()
-    
-    override func viewWillAppear(animated: Bool) {
-        println(receivedScores)
-    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
