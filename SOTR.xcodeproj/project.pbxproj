@@ -20,7 +20,7 @@
 		5C945DD71A407E310012DC72 /* SOTRTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C945DD61A407E310012DC72 /* SOTRTests.swift */; };
 		5CE8FA1F1AC0607C00D4BC46 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE8FA1E1AC0607C00D4BC46 /* DetailViewController.swift */; };
 		5CEAA5361AAE36360094620D /* ItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEAA5351AAE36360094620D /* ItemTableViewController.swift */; };
-		5CEAA5381AAE36910094620D /* Cigar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEAA5371AAE36910094620D /* Cigar.swift */; };
+		5CEAA5381AAE36910094620D /* StogiesItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEAA5371AAE36910094620D /* StogiesItem.swift */; };
 		5CF8D46D1AAE156300A5FBB3 /* FlavorProfileSliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF8D46C1AAE156300A5FBB3 /* FlavorProfileSliderViewController.swift */; };
 		89F7D94FE95C02817D26FA2B /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD4211CB360A219BDF97CE17 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
@@ -54,7 +54,7 @@
 		5C945DD61A407E310012DC72 /* SOTRTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SOTRTests.swift; sourceTree = "<group>"; };
 		5CE8FA1E1AC0607C00D4BC46 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		5CEAA5351AAE36360094620D /* ItemTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemTableViewController.swift; sourceTree = "<group>"; };
-		5CEAA5371AAE36910094620D /* Cigar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cigar.swift; sourceTree = "<group>"; };
+		5CEAA5371AAE36910094620D /* StogiesItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StogiesItem.swift; sourceTree = "<group>"; };
 		5CF8D46C1AAE156300A5FBB3 /* FlavorProfileSliderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlavorProfileSliderViewController.swift; sourceTree = "<group>"; };
 		7F9C71A3FE4F39BFDDB5C7D4 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		BD4211CB360A219BDF97CE17 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -123,7 +123,7 @@
 				5C945DC71A407E310012DC72 /* Images.xcassets */,
 				5C945DC91A407E310012DC72 /* LaunchScreen.xib */,
 				5C945DBC1A407E310012DC72 /* Supporting Files */,
-				5CEAA5371AAE36910094620D /* Cigar.swift */,
+				5CEAA5371AAE36910094620D /* StogiesItem.swift */,
 				5C8744791AD3223F002DB2E8 /* LineChart.swift */,
 				5C35764F1ACC71F50036D725 /* FetchesData.swift */,
 				5C5C68021ACD85B50073F5D4 /* FindsPairing.swift */,
@@ -320,7 +320,7 @@
 				5C3576501ACC71F50036D725 /* FetchesData.swift in Sources */,
 				5CEAA5361AAE36360094620D /* ItemTableViewController.swift in Sources */,
 				5C945DC31A407E310012DC72 /* SecondViewController.swift in Sources */,
-				5CEAA5381AAE36910094620D /* Cigar.swift in Sources */,
+				5CEAA5381AAE36910094620D /* StogiesItem.swift in Sources */,
 				5C87447A1AD3223F002DB2E8 /* LineChart.swift in Sources */,
 				5C5C68031ACD85B50073F5D4 /* FindsPairing.swift in Sources */,
 				5C945DBF1A407E310012DC72 /* AppDelegate.swift in Sources */,
