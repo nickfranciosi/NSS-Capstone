@@ -10,7 +10,10 @@ import Foundation
 
 
 
-
+enum ItemType: String {
+    case Cigar = "cigars"
+    case Spirit = "spirits"
+}
 
 class StogiesItem {
     let name : String!

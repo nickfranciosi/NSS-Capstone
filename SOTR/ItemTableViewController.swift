@@ -25,6 +25,7 @@ class ItemTableViewController: UITableViewController, UISearchControllerDelegate
     var receivedScores: [String:Int]?
     
   
+    
     var itemSearchController =  UISearchController()
 
     
@@ -48,14 +49,19 @@ class ItemTableViewController: UITableViewController, UISearchControllerDelegate
         })()
         
         
-        tableData = buildTableData(items)
         
-        // Reload the table
-        self.tableView.reloadData()
+        refreshTableData(items)
         
-        sectionHeaders = tableData.keys.array.sorted(<)
-        sectionHeaders = findValueAndAddToEnd(needle: "#", haystack: self.sectionHeaders)
-        
+        if let flavorSliderSearchValues = receivedScores {
+//            
+//            var network = Network()
+//            network.getByFlavorProfile(flavorSliderSearchValues, type: ItemType.Cigar, completion: {
+//                results in
+//
+//                self.refreshTableData(results)
+//            })
+            println(flavorSliderSearchValues)
+        }
  
     }
     
@@ -170,6 +176,17 @@ class ItemTableViewController: UITableViewController, UISearchControllerDelegate
             itemDetailViewController.currentItem = chosenItem
             itemSearchController.active = false
         }
+    }
+    
+    func refreshTableData(items: [StogiesItem]){
+        tableData = buildTableData(items)
+        sectionHeaders = tableData.keys.array.sorted(<)
+        sectionHeaders = findValueAndAddToEnd(needle: "#", haystack: self.sectionHeaders)
+        // Reload the table
+        self.tableView.reloadData()
+        
+        
+        
     }
 
     

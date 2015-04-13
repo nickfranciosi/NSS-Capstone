@@ -72,9 +72,7 @@ class DetailViewController: UIViewController, LineChartDelegate {
 
     }
     
-    override func viewWillAppear(animated: Bool) {
-       
-    }
+  `
     
     
     
