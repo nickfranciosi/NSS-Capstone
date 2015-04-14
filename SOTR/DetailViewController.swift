@@ -13,9 +13,11 @@ class DetailViewController: UIViewController, LineChartDelegate {
     
     var label = UILabel()
     var lineChart: LineChart!
-    
+    var pairing: Pairing?
       
+    @IBOutlet weak var selectButton: UIButton!
     @IBOutlet weak var chartViewContainer: UIView!
+    
     var flavors: FlavorProfile!
     var name: String!
     
@@ -70,9 +72,30 @@ class DetailViewController: UIViewController, LineChartDelegate {
         chartViewContainer.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[label]-5-[chart(==190)]", options: nil, metrics: nil, views: views))
         
 
+        if let selectedPairing = self.pairing?.hasFirstSelectionOnly() {
+            self.selectButton.setTitle("View Pairing", forState: UIControlState.Normal)
+        }
+        
+
     }
     
-  `
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "flavorSlider"){
+            if let setPairing = pairing{
+                pairing = setPairing
+            }else{
+                 pairing = Pairing(item: currentItem)
+            }
+            
+            var sliderVC: FlavorProfileSliderViewController = segue.destinationViewController as! FlavorProfileSliderViewController
+            sliderVC.typeChoice = pairing!.getUnselectedType()
+            sliderVC.pairing = pairing
+        }else if(segue.identifier == "pairingView"){
+            var pairingVC: PairingViewController = segue.destinationViewController as! PairingViewController
+            pairingVC.pairing = pairing
+        }
+        
+    }
     
     
     
@@ -84,6 +107,21 @@ class DetailViewController: UIViewController, LineChartDelegate {
     
     
 
+    @IBAction func itemSelected(sender: AnyObject) {
+        if let selectedPairing = pairing{
+            if selectedPairing.hasFirstSelectionOnly() || selectedPairing.hasBothItemsSelected(){
+              pairing!.addItem(currentItem)
+              performSegueWithIdentifier("pairingView", sender: self)
+            }
+            
+        }else{
+            performSegueWithIdentifier("flavorSlider", sender: self)
+        }
+        
+    }
+    
+    
+    
     
     /**
     * Line chart delegate method.

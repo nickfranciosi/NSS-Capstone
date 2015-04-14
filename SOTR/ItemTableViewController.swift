@@ -23,7 +23,7 @@ class ItemTableViewController: UITableViewController, UISearchControllerDelegate
     
     var receivedString: String?
     var receivedScores: [String:Int]?
-    
+    var receivedPairing: Pairing?
   
     
     var itemSearchController =  UISearchController()
@@ -62,6 +62,11 @@ class ItemTableViewController: UITableViewController, UISearchControllerDelegate
 //            })
             println(flavorSliderSearchValues)
         }
+        
+        if let setPairing = receivedPairing{
+            println("pairing is happening \(setPairing)")
+        }
+
  
     }
     
@@ -170,6 +175,10 @@ class ItemTableViewController: UITableViewController, UISearchControllerDelegate
                 destinationTitle = filteredData[indexPath.row]
             }else{
                 destinationTitle = tableData[sectionHeaders[indexPath.section]]![indexPath.row]
+            }
+            
+            if let setPairing = receivedPairing {
+                itemDetailViewController.pairing = setPairing
             }
             let chosenItem = filter(items) { $0.name == destinationTitle }[0]
             itemDetailViewController.title = destinationTitle

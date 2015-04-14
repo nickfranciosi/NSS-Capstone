@@ -34,11 +34,18 @@ class Network {
                 
                 var itemName = item["name"].stringValue
                 var itemFlavorProfile = FlavorProfile(salty: item["salty"].intValue, sweet: item["sweet"].intValue,bitter: item["bitter"].intValue,spicy: item["spicy"].intValue,umami: item["umami"].intValue)
+                var postId = item["post_id"].intValue
+                var desc = item["description"].stringValue
+                
+                var pairLink = item["links"]["pairings"].stringValue
+                var simLink = item["links"]["similar"].stringValue
+                
+                println(pairLink)
                 
                 if type == ItemType.Cigar{
-                    thisItem = Cigar(name: itemName, flavor: itemFlavorProfile)
+                    thisItem = Cigar(post_id: postId, name: itemName, flavor: itemFlavorProfile, description: desc)
                 }else{
-                    thisItem = Spirit(name: itemName, flavor: itemFlavorProfile)
+                    thisItem = Spirit(post_id: postId,name: itemName, flavor: itemFlavorProfile, description: desc)
                 }
                 returnSet.append(thisItem)
             }

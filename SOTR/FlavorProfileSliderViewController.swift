@@ -1,4 +1,4 @@
-//
+    //
 //  FlavorProfileSliderViewController.swift
 //  SOTR
 //
@@ -35,8 +35,11 @@ class FlavorProfileSliderViewController: UIViewController {
     var sliderValueMap:[UISlider:UILabel]!
     var flavorChoices: [String : Int]!
     var typeChoice: ItemType!
-    var defaultFlavorProfile = FlavorProfile(salty: 0, sweet: 2, bitter: 0, spicy: 3, umami: 1);
-    var spicyFlavorProfile = FlavorProfile(salty: 1, sweet: 0, bitter: 0, spicy: 5, umami: 1);
+//    var defaultFlavorProfile = FlavorProfile(salty: 0, sweet: 2, bitter: 0, spicy: 3, umami: 1);
+//    var spicyFlavorProfile = FlavorProfile(salty: 1, sweet: 0, bitter: 0, spicy: 5, umami: 1);
+    
+    
+    var pairing: Pairing?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,6 +69,13 @@ class FlavorProfileSliderViewController: UIViewController {
         introText.text! = "What \(typeChoice.rawValue) flavor(s) are you looking for?"
         searchBar.placeholder! = "Search \(typeChoice.rawValue.capitalizedString)"
         
+        
+        if let setPairing = pairing{
+            println("pairing is happening \(setPairing)")
+        }else{
+            println("no paring")
+        }
+
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -108,7 +118,9 @@ class FlavorProfileSliderViewController: UIViewController {
         
         tableVC.receivedString = filterTitle
         tableVC.receivedScores = flavorChoices
-        
+        if let oneSelectionPairing = pairing{
+            tableVC.receivedPairing = oneSelectionPairing
+        }
         tableVC.items = self.stogiesItems
         
         

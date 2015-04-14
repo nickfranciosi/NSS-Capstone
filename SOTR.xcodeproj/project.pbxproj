@@ -17,6 +17,7 @@
 		5C945DCB1A407E310012DC72 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C945DC91A407E310012DC72 /* LaunchScreen.xib */; };
 		5C945DD71A407E310012DC72 /* SOTRTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C945DD61A407E310012DC72 /* SOTRTests.swift */; };
 		5CB0EE151ADC025E00266912 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB0EE141ADC025E00266912 /* Network.swift */; };
+		5CB0EE171ADC6B2B00266912 /* PairingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB0EE161ADC6B2B00266912 /* PairingViewController.swift */; };
 		5CE8FA1F1AC0607C00D4BC46 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE8FA1E1AC0607C00D4BC46 /* DetailViewController.swift */; };
 		5CEAA5361AAE36360094620D /* ItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEAA5351AAE36360094620D /* ItemTableViewController.swift */; };
 		5CEAA5381AAE36910094620D /* StogiesItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEAA5371AAE36910094620D /* StogiesItem.swift */; };
@@ -50,6 +51,7 @@
 		5C945DD51A407E310012DC72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5C945DD61A407E310012DC72 /* SOTRTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SOTRTests.swift; sourceTree = "<group>"; };
 		5CB0EE141ADC025E00266912 /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		5CB0EE161ADC6B2B00266912 /* PairingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PairingViewController.swift; sourceTree = "<group>"; };
 		5CE8FA1E1AC0607C00D4BC46 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		5CEAA5351AAE36360094620D /* ItemTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemTableViewController.swift; sourceTree = "<group>"; };
 		5CEAA5371AAE36910094620D /* StogiesItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StogiesItem.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				5C945DC01A407E310012DC72 /* FirstViewController.swift */,
 				5C945DC21A407E310012DC72 /* SecondViewController.swift */,
 				5CE8FA1E1AC0607C00D4BC46 /* DetailViewController.swift */,
+				5CB0EE161ADC6B2B00266912 /* PairingViewController.swift */,
 				5CF8D46C1AAE156300A5FBB3 /* FlavorProfileSliderViewController.swift */,
 				5CEAA5351AAE36360094620D /* ItemTableViewController.swift */,
 				5C945DC41A407E310012DC72 /* Main.storyboard */,
@@ -319,6 +322,7 @@
 				5CEAA5381AAE36910094620D /* StogiesItem.swift in Sources */,
 				5C87447A1AD3223F002DB2E8 /* LineChart.swift in Sources */,
 				5CB0EE151ADC025E00266912 /* Network.swift in Sources */,
+				5CB0EE171ADC6B2B00266912 /* PairingViewController.swift in Sources */,
 				5C945DBF1A407E310012DC72 /* AppDelegate.swift in Sources */,
 				5C945DC11A407E310012DC72 /* FirstViewController.swift in Sources */,
 				5CF8D46D1AAE156300A5FBB3 /* FlavorProfileSliderViewController.swift in Sources */,

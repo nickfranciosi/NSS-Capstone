@@ -16,27 +16,31 @@ enum ItemType: String {
 }
 
 class StogiesItem {
+    let postId: Int!
     let name : String!
     let flavor: FlavorProfile!
+    let description : String!
     var type: ItemType?
     
-    init(name: String, flavor: FlavorProfile){
+    init(post_id: Int, name: String, flavor: FlavorProfile, description: String){
+        self.postId = post_id
         self.name = name
         self.flavor = flavor
+        self.description = name
     }
 }
 
 class Spirit: StogiesItem {
-    override init(name: String, flavor: FlavorProfile){
-        super.init(name: name, flavor: flavor)
+    override init(post_id: Int, name: String, flavor: FlavorProfile, description: String){
+        super.init(post_id: post_id, name: name, flavor: flavor, description: description)
         self.type = .Spirit
     }
     
 }
 
 class Cigar: StogiesItem {
-    override init(name: String, flavor: FlavorProfile){
-        super.init(name: name, flavor: flavor)
+    override init(post_id: Int, name: String, flavor: FlavorProfile, description: String){
+        super.init(post_id: post_id,name: name, flavor: flavor, description: description)
         self.type = .Cigar
     }
 }
@@ -63,6 +67,14 @@ class Pairing {
     
     func hasFirstSelectionOnly()-> Bool{
         if((cigar == nil && spirit != nil) || (spirit == nil && cigar != nil)){
+            return true
+        }
+        
+        return false
+    }
+    
+    func hasBothItemsSelected()-> Bool{
+        if(cigar != nil && spirit != nil){
             return true
         }
         
