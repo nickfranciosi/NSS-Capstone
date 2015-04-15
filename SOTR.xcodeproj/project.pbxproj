@@ -10,6 +10,7 @@
 		5C8744741AD303D2002DB2E8 /* ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C8744731AD303D2002DB2E8 /* ionicons.ttf */; };
 		5C87447A1AD3223F002DB2E8 /* LineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8744791AD3223F002DB2E8 /* LineChart.swift */; };
 		5C8A91CB1ADEB6B60013BFED /* TopPairingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8A91CA1ADEB6B60013BFED /* TopPairingViewController.swift */; };
+		5C8A91CF1ADF06A90013BFED /* VoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8A91CE1ADF06A90013BFED /* VoteView.swift */; };
 		5C945DBF1A407E310012DC72 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C945DBE1A407E310012DC72 /* AppDelegate.swift */; };
 		5C945DC11A407E310012DC72 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C945DC01A407E310012DC72 /* FirstViewController.swift */; };
 		5C945DC31A407E310012DC72 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C945DC21A407E310012DC72 /* SecondViewController.swift */; };
@@ -41,6 +42,7 @@
 		5C8744731AD303D2002DB2E8 /* ionicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = ionicons.ttf; path = Pods/FontAwesomeKit/FontAwesomeKit/ionicons.ttf; sourceTree = "<group>"; };
 		5C8744791AD3223F002DB2E8 /* LineChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineChart.swift; sourceTree = "<group>"; };
 		5C8A91CA1ADEB6B60013BFED /* TopPairingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopPairingViewController.swift; sourceTree = "<group>"; };
+		5C8A91CE1ADF06A90013BFED /* VoteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoteView.swift; sourceTree = "<group>"; };
 		5C945DB91A407E310012DC72 /* SOTR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SOTR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C945DBD1A407E310012DC72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5C945DBE1A407E310012DC72 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				5CF8D46C1AAE156300A5FBB3 /* FlavorProfileSliderViewController.swift */,
 				5C8A91CA1ADEB6B60013BFED /* TopPairingViewController.swift */,
 				5CEAA5351AAE36360094620D /* ItemTableViewController.swift */,
+				5C8A91CE1ADF06A90013BFED /* VoteView.swift */,
 				5C945DC41A407E310012DC72 /* Main.storyboard */,
 				5C945DC71A407E310012DC72 /* Images.xcassets */,
 				5C945DC91A407E310012DC72 /* LaunchScreen.xib */,
@@ -322,6 +325,7 @@
 			files = (
 				5CEAA5361AAE36360094620D /* ItemTableViewController.swift in Sources */,
 				5C945DC31A407E310012DC72 /* SecondViewController.swift in Sources */,
+				5C8A91CF1ADF06A90013BFED /* VoteView.swift in Sources */,
 				5CEAA5381AAE36910094620D /* StogiesItem.swift in Sources */,
 				5C87447A1AD3223F002DB2E8 /* LineChart.swift in Sources */,
 				5CB0EE151ADC025E00266912 /* Network.swift in Sources */,
