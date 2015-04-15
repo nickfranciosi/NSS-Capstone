@@ -34,7 +34,7 @@ class StogiesItem {
         self.postId = post_id
         self.name = name
         self.flavor = flavor
-        self.description = name
+        self.description = description
     }
 }
 

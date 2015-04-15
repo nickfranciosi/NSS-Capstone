@@ -12,8 +12,11 @@ import QuartzCore
 class DetailViewController: UIViewController, LineChartDelegate {
     
     var label = UILabel()
+    var desc = UILabel()
     var lineChart: LineChart!
     var pairing: Pairing?
+    
+    var stogiesOrange = UIColor(red: 252/255, green: 190/255, blue: 3/255, alpha: 1)
       
     @IBOutlet weak var selectButton: UIButton!
     @IBOutlet weak var chartViewContainer: UIView!
@@ -27,8 +30,9 @@ class DetailViewController: UIViewController, LineChartDelegate {
         super.viewDidLoad()
         var views: [String: AnyObject] = [:]
         
-        label.text = "\(currentItem.name)"
-        label.textColor = UIColor.whiteColor()
+        label.text = "\(currentItem.name.uppercaseString)"
+        label.font = UIFont(name: "Helvetica Neue", size: 12.0)
+        label.textColor = stogiesOrange
         label.setTranslatesAutoresizingMaskIntoConstraints(false)
         label.textAlignment = NSTextAlignment.Center
         self.chartViewContainer.addSubview(label)
@@ -70,6 +74,18 @@ class DetailViewController: UIViewController, LineChartDelegate {
         views["chart"] = lineChart
         chartViewContainer.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-[chart]-|", options: nil, metrics: nil, views: views))
         chartViewContainer.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[label]-5-[chart(==190)]", options: nil, metrics: nil, views: views))
+        
+        
+        
+        desc.text = "\(currentItem.description)"
+        desc.font = UIFont(name: "Helvetica Neue", size: 8.0)
+        desc.textColor = UIColor.grayColor()
+        desc.setTranslatesAutoresizingMaskIntoConstraints(false)
+        desc.textAlignment = NSTextAlignment.Center
+        self.chartViewContainer.addSubview(desc)
+        views["desc"] = desc
+        chartViewContainer.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-[desc]-|", options: nil, metrics: nil, views: views))
+        chartViewContainer.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[chart]-10-[desc]", options: nil, metrics: nil, views: views))
         
 
         if let selectedPairing = self.pairing?.hasFirstSelectionOnly() {

@@ -70,12 +70,6 @@ class FlavorProfileSliderViewController: UIViewController {
         searchBar.placeholder! = "Search \(typeChoice.rawValue.capitalizedString)"
         
         
-        if let setPairing = pairing{
-            println("pairing is happening \(setPairing)")
-        }else{
-            println("no paring")
-        }
-
     }
     
     override func viewDidAppear(animated: Bool) {
