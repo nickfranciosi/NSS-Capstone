@@ -15,6 +15,14 @@ enum ItemType: String {
     case Spirit = "spirits"
 }
 
+struct FlavorProfile {
+    let salty : Int
+    let sweet : Int
+    let bitter : Int
+    let spicy : Int
+    let umami : Int
+}
+
 class StogiesItem {
     let postId: Int!
     let name : String!
@@ -100,10 +108,3 @@ class Pairing {
     }
 }
 
-struct FlavorProfile {
-    let salty : Int
-    let sweet : Int
-    let bitter : Int
-    let spicy : Int
-    let umami : Int
-}

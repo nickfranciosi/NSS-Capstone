@@ -675,30 +675,36 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Spirit Name" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="2" translatesAutoresizingMaskIntoConstraints="NO" id="XlE-YP-TAs">
-                                <rect key="frame" x="322" y="67" width="270" height="12"/>
+                                <rect key="frame" x="352" y="67" width="240" height="12"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="10"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gYF-Mm-VUe">
-                                <rect key="frame" x="116" y="84" width="54" height="23"/>
+                                <rect key="frame" x="101" y="84" width="54" height="23"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="9"/>
                                 <state key="normal" title="change cigar">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="changeCigarClicked:" destination="x0w-fP-7Rg" eventType="touchUpInside" id="zf0-sa-fhh"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CIgar Name" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="5" translatesAutoresizingMaskIntoConstraints="NO" id="Naz-ys-sev">
-                                <rect key="frame" x="8" y="64" width="270" height="12"/>
+                                <rect key="frame" x="8" y="64" width="240" height="12"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="10"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GZB-32-v76">
-                                <rect key="frame" x="430" y="84" width="54" height="23"/>
+                                <rect key="frame" x="445" y="84" width="54" height="23"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="9"/>
                                 <state key="normal" title="change spirit">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="changeSpiritClicked:" destination="x0w-fP-7Rg" eventType="touchUpInside" id="l62-4B-Xdi"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.29803921570000003" green="0.28235294119999998" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -713,6 +719,7 @@
                             <constraint firstItem="Naz-ys-sev" firstAttribute="centerY" secondItem="F78-YT-iuc" secondAttribute="centerY" id="GIO-TL-zOA"/>
                             <constraint firstAttribute="trailing" secondItem="Aw7-VV-vcD" secondAttribute="trailing" id="HT8-gX-rV7"/>
                             <constraint firstItem="XlE-YP-TAs" firstAttribute="centerY" secondItem="F78-YT-iuc" secondAttribute="centerY" constant="3.5" id="Kgo-C0-yKA"/>
+                            <constraint firstItem="XlE-YP-TAs" firstAttribute="top" secondItem="Naz-ys-sev" secondAttribute="top" constant="3" id="ObF-4q-Azo"/>
                             <constraint firstItem="GZB-32-v76" firstAttribute="baseline" secondItem="gYF-Mm-VUe" secondAttribute="baseline" id="Qmq-we-nVs"/>
                             <constraint firstItem="GZB-32-v76" firstAttribute="top" secondItem="XlE-YP-TAs" secondAttribute="bottom" constant="5" id="RIk-tO-AOL"/>
                             <constraint firstItem="LLd-8A-MxO" firstAttribute="trailing" secondItem="Gp8-7h-vq4" secondAttribute="trailingMargin" id="Uqh-w9-ybV"/>
@@ -720,7 +727,7 @@
                             <constraint firstItem="XlE-YP-TAs" firstAttribute="centerX" secondItem="GZB-32-v76" secondAttribute="centerX" id="aCo-0W-D9m"/>
                             <constraint firstItem="Aw7-VV-vcD" firstAttribute="centerY" secondItem="F78-YT-iuc" secondAttribute="centerY" constant="0.5" id="cqh-HE-QSA"/>
                             <constraint firstItem="Aw7-VV-vcD" firstAttribute="leading" secondItem="Gp8-7h-vq4" secondAttribute="leading" id="eRY-eX-1EE"/>
-                            <constraint firstItem="Aw7-VV-vcD" firstAttribute="width" secondItem="Naz-ys-sev" secondAttribute="width" multiplier="20:9" id="hjQ-n5-Fbj"/>
+                            <constraint firstItem="Aw7-VV-vcD" firstAttribute="width" secondItem="Naz-ys-sev" secondAttribute="width" multiplier="20:8" id="hjQ-n5-Fbj"/>
                             <constraint firstItem="Aw7-VV-vcD" firstAttribute="height" secondItem="Gp8-7h-vq4" secondAttribute="height" multiplier="1:6" id="jN2-3o-0ZN"/>
                             <constraint firstItem="GZB-32-v76" firstAttribute="bottom" secondItem="gYF-Mm-VUe" secondAttribute="bottom" id="jlz-6o-0xJ"/>
                             <constraint firstItem="Aw7-VV-vcD" firstAttribute="top" secondItem="KqB-WP-d5P" secondAttribute="bottom" id="k9M-pQ-99d"/>
@@ -733,6 +740,7 @@
                         <outlet property="chartViewContainer" destination="LLd-8A-MxO" id="1oY-iw-mBA"/>
                         <outlet property="cigarName" destination="Naz-ys-sev" id="l9S-Fk-Gth"/>
                         <outlet property="spiritName" destination="XlE-YP-TAs" id="eCR-Fm-wGL"/>
+                        <segue destination="RRZ-fl-Qhm" kind="show" identifier="changeItemSegue" id="kW4-6B-NT2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qrz-c0-fWY" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -818,10 +826,10 @@
             </objects>
             <point key="canvasLocation" x="3370" y="-496"/>
         </scene>
-        <!--View Controller-->
+        <!--Top Pairing View Controller-->
         <scene sceneID="Sxx-gj-ga3">
             <objects>
-                <viewController id="VH2-Pf-fif" sceneMemberID="viewController">
+                <viewController id="VH2-Pf-fif" customClass="TopPairingViewController" customModule="SOTR" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Xlo-GQ-9NV"/>
                         <viewControllerLayoutGuide type="bottom" id="pVJ-hb-OKs"/>
@@ -854,6 +862,9 @@
                                                 <exclude reference="hkA-eP-hru"/>
                                             </mask>
                                         </variation>
+                                        <connections>
+                                            <action selector="firstTopPairingSelected:" destination="VH2-Pf-fif" eventType="touchUpInside" id="CHd-NY-3Oh"/>
+                                        </connections>
                                     </button>
                                     <view alpha="0.75" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="718-Tk-5Ay">
                                         <rect key="frame" x="0.0" y="113" width="568" height="37"/>
@@ -949,6 +960,9 @@
                                                 <exclude reference="YMh-1o-ZNj"/>
                                             </mask>
                                         </variation>
+                                        <connections>
+                                            <action selector="secondTopPairingSelected:" destination="VH2-Pf-fif" eventType="touchUpInside" id="1Ac-cu-aaX"/>
+                                        </connections>
                                     </button>
                                     <view alpha="0.75" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uu0-ms-p3d">
                                         <rect key="frame" x="0.0" y="113" width="568" height="37"/>
@@ -1043,6 +1057,9 @@
                                                 <exclude reference="Tdo-aq-gCj"/>
                                             </mask>
                                         </variation>
+                                        <connections>
+                                            <action selector="thirdTopPairingSelected:" destination="VH2-Pf-fif" eventType="touchUpInside" id="wc2-95-xqj"/>
+                                        </connections>
                                     </button>
                                     <view alpha="0.75" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MVY-0i-k8y">
                                         <rect key="frame" x="0.0" y="113" width="568" height="37"/>
@@ -1130,6 +1147,9 @@
                             <constraint firstItem="A0i-fm-OzY" firstAttribute="leading" secondItem="sY6-dR-BCy" secondAttribute="leadingMargin" id="y5z-Zf-wFa"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <segue destination="x0w-fP-7Rg" kind="show" identifier="showPairingView" id="iSw-2d-Fbj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p3M-zc-t9m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1272,8 +1292,9 @@
         <image name="whiskey-and-cigar" width="608" height="275"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="n3E-9f-C6V"/>
-        <segue reference="xyy-uv-tHq"/>
+        <segue reference="lYZ-q3-mPq"/>
+        <segue reference="iSw-2d-Fbj"/>
+        <segue reference="kW4-6B-NT2"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.98823529409999999" green="0.74509803919999995" blue="0.01176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

@@ -19,15 +19,21 @@ class Network {
         apiCall(type, completion: completion)
     }
     
-//    func getByFlavorProfile(flavors: [String: Int], type: ItemType,  completion: (response: [StogiesItem]) -> ()){
-//        apiCall(type, withParameters: flavors, completion: completion)
-//    
-//    }
+    func getByFlavorProfile(flavors: [String: Int], type: ItemType,  completion: (response: [StogiesItem]) -> ()){
+        apiCall(type, withParameters: flavors, completion: completion)
+    
+    }
+    
+    func getByPostId(id: String, type: ItemType, completion: (response: [StogiesItem]) -> ()){
+    
+        apiCall(type, withPath: "/"+id, completion: completion)
+    }
     
     
-    private func apiCall(type: ItemType, withParameters parameters: [String: Int]? = nil, completion: (response: [StogiesItem]) -> ()){
+    private func apiCall(type: ItemType, withPath path: String = "", withParameters parameters: [String: Int]? = nil, completion: (response: [StogiesItem]) -> ()){
         var returnSet = [StogiesItem]()
-        Alamofire.request(.GET, baseUrl + type.rawValue, parameters: parameters).responseJSON { (request, response, data, error) in
+        println(baseUrl + type.rawValue + path)
+        Alamofire.request(.GET, baseUrl + type.rawValue + path, parameters: parameters).responseJSON { (request, response, data, error) in
             let itemJson = JSON(data!)
             for (index: String, item: JSON) in itemJson{
                 var thisItem: StogiesItem!

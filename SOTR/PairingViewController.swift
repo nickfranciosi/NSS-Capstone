@@ -15,6 +15,7 @@ class PairingViewController: UIViewController , LineChartDelegate {
     var label = UILabel()
     var lineChart: LineChart!
     var pairing: Pairing?
+    var stogiesItems = [StogiesItem]()
 
     @IBOutlet weak var cigarName: UILabel!
     @IBOutlet weak var spiritName: UILabel!
@@ -100,5 +101,28 @@ class PairingViewController: UIViewController , LineChartDelegate {
             chart.setNeedsDisplay()
         }
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        var tableVC: ItemTableViewController = segue.destinationViewController as! ItemTableViewController
+        tableVC.items = stogiesItems
+        tableVC.receivedPairing = pairing
+    }
+    @IBAction func changeCigarClicked(sender: AnyObject) {
+        var network = Network()
+        network.getAllofType(ItemType.Cigar, completion: {
+            response in
+            self.stogiesItems = response
+            self.performSegueWithIdentifier("changeItemSegue", sender: nil)
+        })
 
+    }
+
+    @IBAction func changeSpiritClicked(sender: AnyObject) {
+        var network = Network()
+        network.getAllofType(ItemType.Spirit, completion: {
+            response in
+            self.stogiesItems = response
+            self.performSegueWithIdentifier("changeItemSegue", sender: nil)
+        })
+    }
 }

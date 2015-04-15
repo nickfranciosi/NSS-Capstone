@@ -53,19 +53,16 @@ class ItemTableViewController: UITableViewController, UISearchControllerDelegate
         refreshTableData(items)
         
         if let flavorSliderSearchValues = receivedScores {
-//            
+            
 //            var network = Network()
 //            network.getByFlavorProfile(flavorSliderSearchValues, type: ItemType.Cigar, completion: {
 //                results in
 //
 //                self.refreshTableData(results)
 //            })
-            println(flavorSliderSearchValues)
         }
         
-        if let setPairing = receivedPairing{
-            println("pairing is happening \(setPairing)")
-        }
+       
 
  
     }

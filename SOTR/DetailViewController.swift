@@ -76,6 +76,7 @@ class DetailViewController: UIViewController, LineChartDelegate {
             self.selectButton.setTitle("View Pairing", forState: UIControlState.Normal)
         }
         
+        println("\(currentItem.postId!)")
 
     }
     
