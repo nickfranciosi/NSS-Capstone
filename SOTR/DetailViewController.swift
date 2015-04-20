@@ -28,6 +28,8 @@ class DetailViewController: UIViewController, LineChartDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.title = "\(currentItem.type!.rawValue.uppercaseString) REVIEW"
         var views: [String: AnyObject] = [:]
         
         label.text = "\(currentItem.name.uppercaseString)"
@@ -89,7 +91,18 @@ class DetailViewController: UIViewController, LineChartDelegate {
         
 
         if let selectedPairing = self.pairing?.hasFirstSelectionOnly() {
-            self.selectButton.setTitle("View Pairing", forState: UIControlState.Normal)
+            self.selectButton.setTitle("See Your Pairing >", forState: UIControlState.Normal)
+        }else{
+            var oppositeItemType:String = {
+                if self.currentItem.type! == .Cigar{
+                    return "Spirits"
+                }else{
+                    return "Cigars"
+                }
+                
+            }()
+            
+            self.selectButton.setTitle("Pair \(oppositeItemType) >", forState: UIControlState.Normal)
         }
         
         println("\(currentItem.postId!)")

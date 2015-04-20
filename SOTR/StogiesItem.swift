@@ -21,6 +21,44 @@ struct FlavorProfile {
     let bitter : Int
     let spicy : Int
     let umami : Int
+    
+    
+    
+    
+    func getProminentFlavor() -> String{
+        let flavorArray = [
+            "salty" : salty,
+            "sweet" : sweet,
+            "bitter" : bitter,
+            "spicy" : spicy,
+            "umami" : umami,
+        ]
+        
+        return getHighestValue(flavorArray)
+        
+    }
+    
+    func getRecommendation() -> String{
+        
+        var total = salty + sweet + spicy + bitter + umami
+        
+        return total > 10 ? "mild":"strong"
+        
+    }
+    
+    private func getHighestValue(items: [String: Int]) -> String{
+    
+        var associatedString: String!
+        var largestValue = 0
+        for (name, value) in items{
+            if value >= largestValue{
+                largestValue = Int(value)
+                associatedString = name
+            }
+        }
+        
+        return associatedString
+    }
 }
 
 class StogiesItem {
@@ -105,6 +143,17 @@ class Pairing {
         }else{
             return ItemType.Spirit
         }
+    }
+    
+    func getDescription() -> String{
+        var cigarStrongFlavor = getStrongestFlavorOfItem(cigar!)
+        var spiritStrongFlavor = getStrongestFlavorOfItem(spirit!)
+        return "This pairing features a \(cigarStrongFlavor) cigar with a \(spiritStrongFlavor) spirit. "
+    }
+    
+    private func getStrongestFlavorOfItem(item: StogiesItem) -> String{
+    
+        return item.flavor.getProminentFlavor()
     }
 }
 

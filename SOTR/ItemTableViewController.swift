@@ -25,12 +25,20 @@ class ItemTableViewController: UITableViewController, UISearchControllerDelegate
     var receivedScores: [String:Int]?
     var receivedPairing: Pairing?
   
+    var type: ItemType!
     
     var itemSearchController =  UISearchController()
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        self.title = "\(type.rawValue.uppercaseString)"
+        let backButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.Plain, target: self, action: nil)
+        backButton.setTitleTextAttributes([NSFontAttributeName: UIFont(name: "Helvetica Neue", size: 17)!], forState: UIControlState.Normal)
+        navigationItem.backBarButtonItem = backButton
+        
         self.tableView.backgroundColor = darkGrayColor
         self.tableView.tableFooterView = UIView(frame:CGRectZero)
         itemSearchController =  ({
@@ -51,15 +59,19 @@ class ItemTableViewController: UITableViewController, UISearchControllerDelegate
         
         
         refreshTableData(items)
-        
+        var network = Network()
         if let flavorSliderSearchValues = receivedScores {
-            
-//            var network = Network()
-//            network.getByFlavorProfile(flavorSliderSearchValues, type: ItemType.Cigar, completion: {
-//                results in
-//
-//                self.refreshTableData(results)
-//            })
+            network.getByFlavorProfile(flavorSliderSearchValues, type: type, completion: {
+                results in
+
+                self.refreshTableData(results)
+            })
+        }else{
+            network.getAllofType(type, completion: {
+                results in
+                
+                self.refreshTableData(results)
+            })
         }
         
        
@@ -184,8 +196,9 @@ class ItemTableViewController: UITableViewController, UISearchControllerDelegate
         }
     }
     
-    func refreshTableData(items: [StogiesItem]){
-        tableData = buildTableData(items)
+    func refreshTableData(newItems: [StogiesItem]){
+        items = newItems
+        tableData = buildTableData(newItems)
         sectionHeaders = tableData.keys.array.sorted(<)
         sectionHeaders = findValueAndAddToEnd(needle: "#", haystack: self.sectionHeaders)
         // Reload the table

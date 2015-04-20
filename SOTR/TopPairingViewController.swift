@@ -15,7 +15,7 @@ class TopPairingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.title = "OUR TOP PAIRINGS"
         // Do any additional setup after loading the view.
     }
 

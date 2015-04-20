@@ -13,8 +13,10 @@ import FontAwesomeKit
 class PairingViewController: UIViewController , LineChartDelegate {
     
     var label = UILabel()
+    var desc = UILabel()
     var lineChart: LineChart!
     var pairing: Pairing?
+    var typeToPass: ItemType?
     var stogiesItems = [StogiesItem]()
 
     @IBOutlet weak var cigarName: UILabel!
@@ -23,6 +25,8 @@ class PairingViewController: UIViewController , LineChartDelegate {
     @IBOutlet weak var chartViewContainer: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.title = "YOUR PAIRING"
         
         let editIcon = FAKIonIcons.editIconWithSize(5)
         
@@ -66,6 +70,18 @@ class PairingViewController: UIViewController , LineChartDelegate {
         views["chart"] = lineChart
         chartViewContainer.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-[chart]-|", options: nil, metrics: nil, views: views))
         chartViewContainer.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-5-[chart(==190)]", options: nil, metrics: nil, views: views))
+        
+        
+        desc.text = "\(pairing!.getDescription())"
+        desc.font = UIFont(name: "Helvetica Neue", size: 8.0)
+        desc.textColor = UIColor.grayColor()
+        desc.setTranslatesAutoresizingMaskIntoConstraints(false)
+        desc.textAlignment = NSTextAlignment.Center
+        self.chartViewContainer.addSubview(desc)
+        views["desc"] = desc
+        chartViewContainer.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-[desc]-|", options: nil, metrics: nil, views: views))
+        chartViewContainer.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[chart]-10-[desc]", options: nil, metrics: nil, views: views))
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -105,6 +121,7 @@ class PairingViewController: UIViewController , LineChartDelegate {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         var tableVC: ItemTableViewController = segue.destinationViewController as! ItemTableViewController
         tableVC.items = stogiesItems
+        tableVC.type = typeToPass
         tableVC.receivedPairing = pairing
     }
     @IBAction func changeCigarClicked(sender: AnyObject) {
@@ -112,6 +129,7 @@ class PairingViewController: UIViewController , LineChartDelegate {
         network.getAllofType(ItemType.Cigar, completion: {
             response in
             self.stogiesItems = response
+            self.typeToPass = .Cigar
             self.performSegueWithIdentifier("changeItemSegue", sender: nil)
         })
 
@@ -122,6 +140,7 @@ class PairingViewController: UIViewController , LineChartDelegate {
         network.getAllofType(ItemType.Spirit, completion: {
             response in
             self.stogiesItems = response
+            self.typeToPass = .Spirit
             self.performSegueWithIdentifier("changeItemSegue", sender: nil)
         })
     }

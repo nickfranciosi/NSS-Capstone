@@ -35,14 +35,18 @@ class FlavorProfileSliderViewController: UIViewController {
     var sliderValueMap:[UISlider:UILabel]!
     var flavorChoices: [String : Int]!
     var typeChoice: ItemType!
-//    var defaultFlavorProfile = FlavorProfile(salty: 0, sweet: 2, bitter: 0, spicy: 3, umami: 1);
-//    var spicyFlavorProfile = FlavorProfile(salty: 1, sweet: 0, bitter: 0, spicy: 5, umami: 1);
+
     
     
     var pairing: Pairing?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.title = "\(typeChoice.rawValue.uppercaseString)"
+        let backButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.Plain, target: self, action: nil)
+        backButton.setTitleTextAttributes([NSFontAttributeName: UIFont(name: "Helvetica Neue", size: 17)!], forState: UIControlState.Normal)
+        navigationItem.backBarButtonItem = backButton
         
         sliderValueMap  = [
             saltySlider : saltyValueLabel,
@@ -56,14 +60,14 @@ class FlavorProfileSliderViewController: UIViewController {
             updateTextVauleWithSliderValue(slider)
         }
         
-        
-        var network = Network()
-        network.getAllofType(typeChoice, completion: {
-            response in
-            self.stogiesItems = response
-        
-        })
-       
+//        
+//        var network = Network()
+//        network.getAllofType(typeChoice, completion: {
+//            response in
+//            self.stogiesItems = response
+//        
+//        })
+//       
         
 
         introText.text! = "What \(typeChoice.rawValue) flavor(s) are you looking for?"
@@ -112,6 +116,7 @@ class FlavorProfileSliderViewController: UIViewController {
         
         tableVC.receivedString = filterTitle
         tableVC.receivedScores = flavorChoices
+        tableVC.type = typeChoice
         if let oneSelectionPairing = pairing{
             tableVC.receivedPairing = oneSelectionPairing
         }

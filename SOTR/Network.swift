@@ -12,7 +12,7 @@ import SwiftyJSON
 
 class Network {
     
-    let baseUrl = "http://stogiesontherocks.com/api/v1/"
+    let baseUrl = "http://stogiesontherocks.com/api2/public/"
     
    
     func getAllofType(type: ItemType, completion: (response: [StogiesItem]) -> ()){
@@ -20,6 +20,7 @@ class Network {
     }
     
     func getByFlavorProfile(flavors: [String: Int], type: ItemType,  completion: (response: [StogiesItem]) -> ()){
+        println(flavors)
         apiCall(type, withParameters: flavors, completion: completion)
     
     }
@@ -35,7 +36,7 @@ class Network {
         println(baseUrl + type.rawValue + path)
         Alamofire.request(.GET, baseUrl + type.rawValue + path, parameters: parameters).responseJSON { (request, response, data, error) in
             let itemJson = JSON(data!)
-            for (index: String, item: JSON) in itemJson{
+            for (index: String, item: JSON) in itemJson["data"]{
                 var thisItem: StogiesItem!
                 
                 var itemName = item["name"].stringValue
