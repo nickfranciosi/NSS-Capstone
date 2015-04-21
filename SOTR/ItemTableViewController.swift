@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ItemTableViewController: UITableViewController, UISearchControllerDelegate, UISearchResultsUpdating{
+class ItemTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchControllerDelegate, UISearchResultsUpdating{
 
     var items = [StogiesItem]()
     
@@ -29,8 +29,12 @@ class ItemTableViewController: UITableViewController, UISearchControllerDelegate
     
     var itemSearchController =  UISearchController()
     
+    @IBOutlet var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.delegate = self
+        tableView.dataSource = self
         
         self.title = "\(type.rawValue.uppercaseString)"
         let backButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.Plain, target: self, action: nil)
@@ -92,7 +96,7 @@ class ItemTableViewController: UITableViewController, UISearchControllerDelegate
     
     // MARK: - Table view data source
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Potentially incomplete method implementation.
         // Return the number of sections.
        
@@ -106,7 +110,7 @@ class ItemTableViewController: UITableViewController, UISearchControllerDelegate
         
     }
     
-    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         if (self.itemSearchController.active){
             return nil
@@ -119,7 +123,7 @@ class ItemTableViewController: UITableViewController, UISearchControllerDelegate
     }
     
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
        
@@ -133,7 +137,7 @@ class ItemTableViewController: UITableViewController, UISearchControllerDelegate
     }
   
     
-    override func sectionIndexTitlesForTableView(tableView: UITableView) -> [AnyObject]! {
+     func sectionIndexTitlesForTableView(tableView: UITableView) -> [AnyObject]! {
         if (self.itemSearchController.active){
             return nil
         }else{
@@ -142,7 +146,7 @@ class ItemTableViewController: UITableViewController, UISearchControllerDelegate
         
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCellWithIdentifier("itemCell", forIndexPath: indexPath) as! UITableViewCell
         
         let itemName : String!

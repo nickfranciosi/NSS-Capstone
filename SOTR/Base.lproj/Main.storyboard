@@ -841,10 +841,13 @@
                             <outlet property="delegate" destination="RRZ-fl-Qhm" id="stf-x9-9gM"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="tableView" destination="upd-r7-5EJ" id="h6H-AQ-Bld"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Btz-5n-kWF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4129" y="-781"/>
+            <point key="canvasLocation" x="4123" y="-738"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="8ns-LD-w5H">
@@ -1388,9 +1391,9 @@
         <image name="whiskey-and-cigar" width="608" height="275"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="kW4-6B-NT2"/>
-        <segue reference="y6X-7f-U8F"/>
+        <segue reference="BEq-61-7oH"/>
         <segue reference="xyy-uv-tHq"/>
+        <segue reference="y6X-7f-U8F"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.98823529409999999" green="0.74509803919999995" blue="0.01176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
