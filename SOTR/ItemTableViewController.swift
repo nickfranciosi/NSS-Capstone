@@ -28,11 +28,9 @@ class ItemTableViewController: UITableViewController, UISearchControllerDelegate
     var type: ItemType!
     
     var itemSearchController =  UISearchController()
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         self.title = "\(type.rawValue.uppercaseString)"
         let backButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.Plain, target: self, action: nil)
@@ -63,13 +61,14 @@ class ItemTableViewController: UITableViewController, UISearchControllerDelegate
         if let flavorSliderSearchValues = receivedScores {
             network.getByFlavorProfile(flavorSliderSearchValues, type: type, completion: {
                 results in
-
+                if results.isEmpty{
+                    println("no results found")
+                }
                 self.refreshTableData(results)
             })
         }else{
             network.getAllofType(type, completion: {
                 results in
-                
                 self.refreshTableData(results)
             })
         }
@@ -203,7 +202,6 @@ class ItemTableViewController: UITableViewController, UISearchControllerDelegate
         sectionHeaders = findValueAndAddToEnd(needle: "#", haystack: self.sectionHeaders)
         // Reload the table
         self.tableView.reloadData()
-        
         
         
     }
