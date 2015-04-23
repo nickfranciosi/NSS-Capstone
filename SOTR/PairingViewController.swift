@@ -119,29 +119,17 @@ class PairingViewController: UIViewController , LineChartDelegate {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        var tableVC: ItemTableViewController = segue.destinationViewController as! ItemTableViewController
-        tableVC.items = stogiesItems
+        var tableVC: ItemListViewController = segue.destinationViewController as! ItemListViewController
         tableVC.type = typeToPass
         tableVC.receivedPairing = pairing
     }
     @IBAction func changeCigarClicked(sender: AnyObject) {
-        var network = Network()
-        network.getAllofType(ItemType.Cigar, completion: {
-            response in
-            self.stogiesItems = response
-            self.typeToPass = .Cigar
-            self.performSegueWithIdentifier("changeItemSegue", sender: nil)
-        })
-
+        self.typeToPass = .Cigar
+        self.performSegueWithIdentifier("changeItemSegue", sender: nil)
     }
 
     @IBAction func changeSpiritClicked(sender: AnyObject) {
-        var network = Network()
-        network.getAllofType(ItemType.Spirit, completion: {
-            response in
-            self.stogiesItems = response
-            self.typeToPass = .Spirit
-            self.performSegueWithIdentifier("changeItemSegue", sender: nil)
-        })
+        self.typeToPass = .Spirit
+        self.performSegueWithIdentifier("changeItemSegue", sender: nil)
     }
 }

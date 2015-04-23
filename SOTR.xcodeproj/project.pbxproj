@@ -21,7 +21,7 @@
 		5CB0EE151ADC025E00266912 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB0EE141ADC025E00266912 /* Network.swift */; };
 		5CB0EE171ADC6B2B00266912 /* PairingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB0EE161ADC6B2B00266912 /* PairingViewController.swift */; };
 		5CE8FA1F1AC0607C00D4BC46 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE8FA1E1AC0607C00D4BC46 /* DetailViewController.swift */; };
-		5CEAA5361AAE36360094620D /* ItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEAA5351AAE36360094620D /* ItemTableViewController.swift */; };
+		5CEAA5361AAE36360094620D /* ItemListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEAA5351AAE36360094620D /* ItemListViewController.swift */; };
 		5CEAA5381AAE36910094620D /* StogiesItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEAA5371AAE36910094620D /* StogiesItem.swift */; };
 		5CF8D46D1AAE156300A5FBB3 /* FlavorProfileSliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF8D46C1AAE156300A5FBB3 /* FlavorProfileSliderViewController.swift */; };
 		89F7D94FE95C02817D26FA2B /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD4211CB360A219BDF97CE17 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -57,7 +57,7 @@
 		5CB0EE141ADC025E00266912 /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		5CB0EE161ADC6B2B00266912 /* PairingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PairingViewController.swift; sourceTree = "<group>"; };
 		5CE8FA1E1AC0607C00D4BC46 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		5CEAA5351AAE36360094620D /* ItemTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemTableViewController.swift; sourceTree = "<group>"; };
+		5CEAA5351AAE36360094620D /* ItemListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemListViewController.swift; sourceTree = "<group>"; };
 		5CEAA5371AAE36910094620D /* StogiesItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StogiesItem.swift; sourceTree = "<group>"; };
 		5CF8D46C1AAE156300A5FBB3 /* FlavorProfileSliderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlavorProfileSliderViewController.swift; sourceTree = "<group>"; };
 		7F9C71A3FE4F39BFDDB5C7D4 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -124,7 +124,7 @@
 				5CB0EE161ADC6B2B00266912 /* PairingViewController.swift */,
 				5CF8D46C1AAE156300A5FBB3 /* FlavorProfileSliderViewController.swift */,
 				5C8A91CA1ADEB6B60013BFED /* TopPairingViewController.swift */,
-				5CEAA5351AAE36360094620D /* ItemTableViewController.swift */,
+				5CEAA5351AAE36360094620D /* ItemListViewController.swift */,
 				5C8A91CE1ADF06A90013BFED /* VoteView.swift */,
 				5C945DC41A407E310012DC72 /* Main.storyboard */,
 				5C945DC71A407E310012DC72 /* Images.xcassets */,
@@ -323,7 +323,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5CEAA5361AAE36360094620D /* ItemTableViewController.swift in Sources */,
+				5CEAA5361AAE36360094620D /* ItemListViewController.swift in Sources */,
 				5C945DC31A407E310012DC72 /* SecondViewController.swift in Sources */,
 				5C8A91CF1ADF06A90013BFED /* VoteView.swift in Sources */,
 				5CEAA5381AAE36910094620D /* StogiesItem.swift in Sources */,

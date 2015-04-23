@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ItemTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchControllerDelegate, UISearchResultsUpdating{
+class ItemListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchControllerDelegate, UISearchResultsUpdating{
 
     var items = [StogiesItem]()
     
@@ -28,8 +28,11 @@ class ItemTableViewController: UIViewController, UITableViewDataSource, UITableV
     var type: ItemType!
     
     var itemSearchController =  UISearchController()
+    var activityIndicator = UIActivityIndicatorView()
+    
     
     @IBOutlet var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -78,8 +81,13 @@ class ItemTableViewController: UIViewController, UITableViewDataSource, UITableV
         }
         
        
-
- 
+        
+        activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.White)
+        activityIndicator.frame = CGRect(x: self.view.center.x, y: self.view.center.y, width: 300, height: 300)
+         activityIndicator.center = CGPointMake(self.view.frame.size.width / 2, self.view.frame.size.height / 2)
+        activityIndicator.startAnimating()
+        self.view.addSubview(activityIndicator)
+        
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -206,8 +214,7 @@ class ItemTableViewController: UIViewController, UITableViewDataSource, UITableV
         sectionHeaders = findValueAndAddToEnd(needle: "#", haystack: self.sectionHeaders)
         // Reload the table
         self.tableView.reloadData()
-        
-        
+        activityIndicator.stopAnimating()
     }
 
     

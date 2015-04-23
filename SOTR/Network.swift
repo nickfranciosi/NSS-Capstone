@@ -47,8 +47,6 @@ class Network {
                 var pairLink = item["links"]["pairings"].stringValue
                 var simLink = item["links"]["similar"].stringValue
                 
-                println(pairLink)
-                
                 if type == ItemType.Cigar{
                     thisItem = Cigar(post_id: postId, name: itemName, flavor: itemFlavorProfile, description: desc)
                 }else{

@@ -100,7 +100,7 @@ class FlavorProfileSliderViewController: UIViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        var tableVC: ItemTableViewController = segue.destinationViewController as! ItemTableViewController
+        var tableVC: ItemListViewController = segue.destinationViewController as! ItemListViewController
         var filterTitle = sender?.titleLabel!!.text
         
         if (segue.identifier == "slideResultsSegue"){

@@ -498,7 +498,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="RRZ-fl-Qhm" kind="show" identifier="slideResultsSegue" id="n3E-9f-C6V"/>
+                                            <segue destination="ebV-m5-Zmj" kind="show" identifier="slideResultsSegue" id="HmA-FS-bx9"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -559,7 +559,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <segue destination="RRZ-fl-Qhm" kind="show" identifier="allSeque" id="bnm-R4-aLk"/>
+                                    <segue destination="ebV-m5-Zmj" kind="show" id="0As-Pv-zRr"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aZ9-tS-W57">
@@ -578,9 +578,6 @@
                                         <exclude reference="JfB-Xd-lLq"/>
                                     </mask>
                                 </variation>
-                                <connections>
-                                    <segue destination="RRZ-fl-Qhm" kind="show" identifier="recommendedSegue" id="BEq-61-7oH"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HLA-cy-D8P">
                                 <rect key="frame" x="213" y="512" width="175" height="26"/>
@@ -598,9 +595,6 @@
                                         <exclude reference="44A-7I-DgH"/>
                                     </mask>
                                 </variation>
-                                <connections>
-                                    <segue destination="RRZ-fl-Qhm" kind="show" identifier="favoritesSeque" id="vVw-BS-G26"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -641,6 +635,54 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EEG-h7-dHe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3170" y="-781"/>
+        </scene>
+        <!--Item List View Controller-->
+        <scene sceneID="Yxy-OY-djl">
+            <objects>
+                <viewController id="ebV-m5-Zmj" customClass="ItemListViewController" customModule="SOTR" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="uAG-Sh-4W1"/>
+                        <viewControllerLayoutGuide type="bottom" id="urr-gf-MEb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bnE-XW-Qgh">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="pz3-Ra-r0F">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="separatorColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="sectionIndexBackgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="itemCell" id="8Tr-hu-OcY">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8Tr-hu-OcY" id="fuW-WB-fpq">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <segue destination="fVj-EJ-phR" kind="show" identifier="itemDetail" id="LKp-y2-OPU"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="pz3-Ra-r0F" firstAttribute="leading" secondItem="bnE-XW-Qgh" secondAttribute="leading" id="Fj0-gz-7aM"/>
+                            <constraint firstItem="pz3-Ra-r0F" firstAttribute="top" secondItem="bnE-XW-Qgh" secondAttribute="top" id="Hsw-ys-PGh"/>
+                            <constraint firstItem="urr-gf-MEb" firstAttribute="top" secondItem="pz3-Ra-r0F" secondAttribute="bottom" id="OWN-V8-Rpn"/>
+                            <constraint firstAttribute="trailing" secondItem="pz3-Ra-r0F" secondAttribute="trailing" id="hVJ-Se-LAh"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="pz3-Ra-r0F" id="Irf-Z9-PsU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W5r-qC-lQk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3905" y="-744"/>
         </scene>
         <!--Pairing View Controller-->
         <scene sceneID="9id-ac-uoY">
@@ -807,47 +849,12 @@
                         <outlet property="chartViewContainer" destination="LLd-8A-MxO" id="1oY-iw-mBA"/>
                         <outlet property="cigarName" destination="Naz-ys-sev" id="l9S-Fk-Gth"/>
                         <outlet property="spiritName" destination="XlE-YP-TAs" id="eCR-Fm-wGL"/>
-                        <segue destination="RRZ-fl-Qhm" kind="show" identifier="changeItemSegue" id="kW4-6B-NT2"/>
+                        <segue destination="ebV-m5-Zmj" kind="show" identifier="changeItemSegue" id="QKd-8r-CgZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qrz-c0-fWY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2616" y="696"/>
-        </scene>
-        <!--Item Table View Controller-->
-        <scene sceneID="IJh-Ov-6WA">
-            <objects>
-                <tableViewController id="RRZ-fl-Qhm" customClass="ItemTableViewController" customModule="SOTR" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="upd-r7-5EJ">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="separatorColor" red="0.29803921568627451" green="0.28235294117647058" blue="0.25098039215686274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="sectionIndexBackgroundColor" red="0.18823529411764706" green="0.16862745098039217" blue="0.14901960784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="itemCell" id="6Am-cG-cvD">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6Am-cG-cvD" id="yHK-Xf-IKG">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.18823529410000001" green="0.16862745100000001" blue="0.14901960780000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <connections>
-                                    <segue destination="fVj-EJ-phR" kind="show" identifier="itemDetail" id="gRe-oG-bZX"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="RRZ-fl-Qhm" id="xAZ-7m-xHO"/>
-                            <outlet property="delegate" destination="RRZ-fl-Qhm" id="stf-x9-9gM"/>
-                        </connections>
-                    </tableView>
-                    <connections>
-                        <outlet property="tableView" destination="upd-r7-5EJ" id="h6H-AQ-Bld"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Btz-5n-kWF" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4123" y="-738"/>
+            <point key="canvasLocation" x="3948" y="124"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="8ns-LD-w5H">
@@ -922,7 +929,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OUk-QR-u9A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2492" y="-51"/>
+            <point key="canvasLocation" x="2490" y="8"/>
         </scene>
         <!--Top Pairing View Controller-->
         <scene sceneID="Sxx-gj-ga3">
@@ -1391,9 +1398,9 @@
         <image name="whiskey-and-cigar" width="608" height="275"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="BEq-61-7oH"/>
-        <segue reference="xyy-uv-tHq"/>
+        <segue reference="QKd-8r-CgZ"/>
         <segue reference="y6X-7f-U8F"/>
+        <segue reference="xyy-uv-tHq"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.98823529409999999" green="0.74509803919999995" blue="0.01176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
