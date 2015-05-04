@@ -104,6 +104,13 @@ class DetailViewController: UIViewController, LineChartDelegate {
             
             self.selectButton.setTitle("Pair \(oppositeItemType) >", forState: UIControlState.Normal)
         }
+        let network = Network()
+        network.getSimilar(currentItem, completion: {
+            results in
+            
+            println(results)
+            }
+        )
         
         println("\(currentItem.postId!)")
 

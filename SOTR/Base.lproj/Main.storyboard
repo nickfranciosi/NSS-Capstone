@@ -674,7 +674,13 @@
                             <constraint firstItem="pz3-Ra-r0F" firstAttribute="top" secondItem="bnE-XW-Qgh" secondAttribute="top" id="Hsw-ys-PGh"/>
                             <constraint firstItem="urr-gf-MEb" firstAttribute="top" secondItem="pz3-Ra-r0F" secondAttribute="bottom" id="OWN-V8-Rpn"/>
                             <constraint firstAttribute="trailing" secondItem="pz3-Ra-r0F" secondAttribute="trailing" id="hVJ-Se-LAh"/>
+                            <constraint firstItem="pz3-Ra-r0F" firstAttribute="top" secondItem="bnE-XW-Qgh" secondAttribute="topMargin" id="wPB-PU-gA1"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Hsw-ys-PGh"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="tableView" destination="pz3-Ra-r0F" id="Irf-Z9-PsU"/>
@@ -696,10 +702,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LLd-8A-MxO">
-                                <rect key="frame" x="16" y="158" width="568" height="267"/>
-                                <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="darkButtonWell" translatesAutoresizingMaskIntoConstraints="NO" id="Aw7-VV-vcD">
                                 <rect key="frame" x="0.0" y="20" width="600" height="100"/>
                             </imageView>
@@ -781,15 +783,31 @@
                                             <constraint firstItem="GgV-xB-jXN" firstAttribute="top" secondItem="CVX-VD-1eM" secondAttribute="top" id="tBx-Oh-pfv"/>
                                         </constraints>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b4B-k3-dW9">
+                                        <rect key="frame" x="429" y="1" width="76" height="27"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="76" id="9Wj-w3-ZEa"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal" title="Vote" image="thumb">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="upVotePairing:" destination="x0w-fP-7Rg" eventType="touchUpInside" id="bwT-ey-IbK"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.1019607843" green="0.094117647060000004" blue="0.090196078430000007" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="Zwf-h6-0CY" firstAttribute="leading" secondItem="3iW-Ym-dub" secondAttribute="leading" constant="8" id="0xw-Qk-86j"/>
                                     <constraint firstAttribute="trailing" secondItem="CVX-VD-1eM" secondAttribute="trailing" id="18I-jo-iU0"/>
                                     <constraint firstItem="CVX-VD-1eM" firstAttribute="top" secondItem="3iW-Ym-dub" secondAttribute="top" id="Lwb-Ul-A4Y"/>
+                                    <constraint firstItem="A5M-bi-mB3" firstAttribute="leading" secondItem="b4B-k3-dW9" secondAttribute="trailing" constant="8" id="S9s-Ka-NxI"/>
                                     <constraint firstAttribute="centerY" secondItem="Zwf-h6-0CY" secondAttribute="centerY" id="b7u-lq-s4D"/>
                                     <constraint firstAttribute="height" constant="30" id="ifU-7W-zyi"/>
                                     <constraint firstAttribute="bottom" secondItem="CVX-VD-1eM" secondAttribute="bottom" id="koG-s2-T7T"/>
+                                    <constraint firstAttribute="centerY" secondItem="b4B-k3-dW9" secondAttribute="centerY" id="v4A-0T-07b"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SQY-ko-ntD">
@@ -805,6 +823,10 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LLd-8A-MxO">
+                                <rect key="frame" x="16" y="158" width="568" height="267"/>
+                                <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.29803921570000003" green="0.28235294119999998" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -849,6 +871,8 @@
                         <outlet property="chartViewContainer" destination="LLd-8A-MxO" id="1oY-iw-mBA"/>
                         <outlet property="cigarName" destination="Naz-ys-sev" id="l9S-Fk-Gth"/>
                         <outlet property="spiritName" destination="XlE-YP-TAs" id="eCR-Fm-wGL"/>
+                        <outlet property="voteButton" destination="b4B-k3-dW9" id="Srp-Y7-7fU"/>
+                        <outlet property="voteLabel" destination="A5M-bi-mB3" id="fMh-Qd-P05"/>
                         <segue destination="ebV-m5-Zmj" kind="show" identifier="changeItemSegue" id="QKd-8r-CgZ"/>
                     </connections>
                 </viewController>
@@ -1394,6 +1418,7 @@
         <image name="plus" width="49" height="49"/>
         <image name="profile" width="25" height="25"/>
         <image name="review" width="25" height="25"/>
+        <image name="thumb" width="30" height="27"/>
         <image name="topPairing" width="603" height="298"/>
         <image name="whiskey-and-cigar" width="608" height="275"/>
     </resources>

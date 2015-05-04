@@ -18,13 +18,29 @@ class PairingViewController: UIViewController , LineChartDelegate {
     var pairing: Pairing?
     var typeToPass: ItemType?
     var stogiesItems = [StogiesItem]()
+    
+    let network = Network()
 
     @IBOutlet weak var cigarName: UILabel!
     @IBOutlet weak var spiritName: UILabel!
     
+    @IBOutlet weak var voteButton: UIButton!
+    @IBOutlet weak var voteLabel: UILabel!
     @IBOutlet weak var chartViewContainer: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+       
+        
+        voteLabel.text = "-"
+        
+        network.getVoteCount(pairing!, completion: {
+            results in
+            println(results)
+           self.voteLabel.text = "\(results)"
+        })
+        
+        
         
         self.title = "YOUR PAIRING"
         
@@ -131,5 +147,12 @@ class PairingViewController: UIViewController , LineChartDelegate {
     @IBAction func changeSpiritClicked(sender: AnyObject) {
         self.typeToPass = .Spirit
         self.performSegueWithIdentifier("changeItemSegue", sender: nil)
+    }
+   
+    @IBAction func upVotePairing(sender: AnyObject) {
+        self.voteButton.enabled = false
+        var currentVotes = self.voteLabel.text!.toInt()
+        self.voteLabel.text = "\(++currentVotes!)"
+        network.upVote(pairing!)
     }
 }
