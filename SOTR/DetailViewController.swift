@@ -9,12 +9,13 @@
 import UIKit
 import QuartzCore
 
-class DetailViewController: UIViewController, LineChartDelegate {
+class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, LineChartDelegate {
     
     var label = UILabel()
     var desc = UILabel()
     var lineChart: LineChart!
     var pairing: Pairing?
+    var similarItems = [StogiesItem]()
     
     var stogiesOrange = UIColor(red: 252/255, green: 190/255, blue: 3/255, alpha: 1)
       
@@ -25,12 +26,22 @@ class DetailViewController: UIViewController, LineChartDelegate {
     var name: String!
     
     var currentItem: StogiesItem!
+    var views: [String: AnyObject] = [:]
+    @IBOutlet weak var similarTableView: UITableView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        similarTableView.dataSource = self
+        similarTableView.delegate = self
+        
+        
+        
+        
         self.title = "\(currentItem.type!.rawValue.uppercaseString) REVIEW"
-        var views: [String: AnyObject] = [:]
+        
+        
         
         label.text = "\(currentItem.name.uppercaseString)"
         label.font = UIFont(name: "Helvetica Neue", size: 12.0)
@@ -42,16 +53,14 @@ class DetailViewController: UIViewController, LineChartDelegate {
         chartViewContainer.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-[label]-|", options: nil, metrics: nil, views: views))
         chartViewContainer.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-5-[label]", options: nil, metrics: nil, views: views))
         
-        // simple arrays
-        var data: [CGFloat] = [CGFloat(currentItem.flavor.bitter), CGFloat(currentItem.flavor.salty), CGFloat(currentItem.flavor.sweet), CGFloat(currentItem.flavor.umami), CGFloat(currentItem.flavor.spicy)]
-        var data2: [CGFloat] = [1, 0, 3, 3, 0]
-        var maxXaxisSetter: [CGFloat] = [1,2,3,4,5]
+        
         
         // simple line with custom x axis labels
         var xLabels: [String] = ["Bitter", "Salty", "Sweet","Umami", "Spicy"]
         var yLabels: [String] = ["0", "1", "2","3", "4", "5"]
         
         lineChart = LineChart()
+        
         lineChart.dots.visible = false
         lineChart.animation.enabled = false
         lineChart.area = true
@@ -66,6 +75,52 @@ class DetailViewController: UIViewController, LineChartDelegate {
         lineChart.x.labels.values = xLabels
         lineChart.y.labels.values = yLabels
         lineChart.y.labels.visible = true
+        updateItemData()
+        
+
+        if let selectedPairing = self.pairing?.hasFirstSelectionOnly() {
+            self.selectButton.setTitle("See Your Pairing >", forState: UIControlState.Normal)
+        }else{
+            var oppositeItemType:String = {
+                if self.currentItem.type! == .Cigar{
+                    return "Spirits"
+                }else{
+                    return "Cigars"
+                }
+                
+            }()
+            
+            self.selectButton.setTitle("Pair \(oppositeItemType) >", forState: UIControlState.Normal)
+        }
+
+    }
+    
+    
+    func updateSimItems(){
+        self.similarItems = []
+        let network = Network()
+        network.getSimilar(currentItem, completion: {
+            results in
+            
+            var thisItem: StogiesItem!
+            for anItem in results{
+                self.similarItems.append(anItem)
+            }
+            
+            self.similarTableView.reloadData()
+            }
+        )
+        
+        println("\(currentItem.postId!)")
+    }
+    
+    func updateItemData(){
+        // simple arrays
+        updateSimItems()
+        label.text = "\(currentItem.name.uppercaseString)"
+        var data: [CGFloat] = [CGFloat(currentItem.flavor.bitter), CGFloat(currentItem.flavor.salty), CGFloat(currentItem.flavor.sweet), CGFloat(currentItem.flavor.umami), CGFloat(currentItem.flavor.spicy)]
+        var maxXaxisSetter: [CGFloat] = [1,2,3,4,5]
+        
         lineChart.addLine(maxXaxisSetter)
         lineChart.addLine(data)
         
@@ -89,31 +144,6 @@ class DetailViewController: UIViewController, LineChartDelegate {
         chartViewContainer.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-[desc]-|", options: nil, metrics: nil, views: views))
         chartViewContainer.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[chart]-10-[desc]", options: nil, metrics: nil, views: views))
         
-
-        if let selectedPairing = self.pairing?.hasFirstSelectionOnly() {
-            self.selectButton.setTitle("See Your Pairing >", forState: UIControlState.Normal)
-        }else{
-            var oppositeItemType:String = {
-                if self.currentItem.type! == .Cigar{
-                    return "Spirits"
-                }else{
-                    return "Cigars"
-                }
-                
-            }()
-            
-            self.selectButton.setTitle("Pair \(oppositeItemType) >", forState: UIControlState.Normal)
-        }
-        let network = Network()
-        network.getSimilar(currentItem, completion: {
-            results in
-            
-            println(results)
-            }
-        )
-        
-        println("\(currentItem.postId!)")
-
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -158,7 +188,25 @@ class DetailViewController: UIViewController, LineChartDelegate {
     }
     
     
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = self.similarTableView.dequeueReusableCellWithIdentifier("simCell", forIndexPath: indexPath) as! UITableViewCell
+        var item = similarItems[indexPath.row]
+        var name = item.name!
+        cell.textLabel?.text = name
+        return cell
+    }
     
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return similarItems.count
+        
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        println(similarItems[indexPath.row].name)
+        self.currentItem = similarItems[indexPath.row]
+        lineChart.clearAll()
+        updateItemData()
+    }
     
     /**
     * Line chart delegate method.

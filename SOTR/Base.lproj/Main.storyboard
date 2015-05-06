@@ -718,10 +718,11 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gYF-Mm-VUe">
-                                <rect key="frame" x="101" y="84" width="54" height="23"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="9"/>
-                                <state key="normal" title="change cigar">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gYF-Mm-VUe">
+                                <rect key="frame" x="85" y="84" width="87" height="17"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                <state key="normal" title="change cigar" image="edit">
+                                    <color key="titleColor" red="0.98823529409999999" green="0.74509803919999995" blue="0.01176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -734,10 +735,11 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GZB-32-v76">
-                                <rect key="frame" x="445" y="84" width="54" height="23"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="9"/>
-                                <state key="normal" title="change spirit">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GZB-32-v76">
+                                <rect key="frame" x="429" y="84" width="87" height="17"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                <state key="normal" title="change spirit" image="edit">
+                                    <color key="titleColor" red="0.98823529409999999" green="0.74509803919999995" blue="0.01176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -878,7 +880,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qrz-c0-fWY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3948" y="124"/>
+            <point key="canvasLocation" x="3905" y="194"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="8ns-LD-w5H">
@@ -907,6 +909,19 @@
                                     <action selector="itemSelected:" destination="fVj-EJ-phR" eventType="touchUpInside" id="KSi-Eq-ses"/>
                                 </connections>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Jcy-17-fRz">
+                                <rect key="frame" x="16" y="381" width="568" height="199"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="simCell" id="7an-I5-VZa">
+                                        <rect key="frame" x="0.0" y="0.0" width="568" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7an-I5-VZa" id="Sfo-YK-TeP">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P8D-Eh-GHB">
                                 <rect key="frame" x="16" y="338" width="267" height="35"/>
                                 <color key="backgroundColor" red="0.1019607843" green="0.094117647060000004" blue="0.090196078430000007" alpha="1" colorSpace="calibratedRGB"/>
@@ -923,37 +938,42 @@
                         </subviews>
                         <color key="backgroundColor" red="0.29803921570000003" green="0.28235294119999998" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="3vm-Tx-P1f" firstAttribute="top" secondItem="nk9-hl-762" secondAttribute="bottom" constant="10" id="1IQ-FI-oX1"/>
+                            <constraint firstItem="CRR-kF-Me3" firstAttribute="top" secondItem="P8D-Eh-GHB" secondAttribute="bottom" constant="29" id="2Rq-5K-Ies"/>
                             <constraint firstItem="P8D-Eh-GHB" firstAttribute="width" secondItem="fuD-Wh-574" secondAttribute="width" id="5QB-fM-6hK"/>
                             <constraint firstItem="3vm-Tx-P1f" firstAttribute="height" secondItem="jRO-Gx-aQA" secondAttribute="height" multiplier="1:2" id="AWC-AL-cVa"/>
                             <constraint firstItem="fuD-Wh-574" firstAttribute="trailing" secondItem="jRO-Gx-aQA" secondAttribute="trailingMargin" id="D0Z-PY-aJj"/>
-                            <constraint firstItem="CRR-kF-Me3" firstAttribute="top" secondItem="P8D-Eh-GHB" secondAttribute="bottom" constant="29" id="Q9P-O2-SIm"/>
+                            <constraint firstItem="CRR-kF-Me3" firstAttribute="top" secondItem="fuD-Wh-574" secondAttribute="bottom" constant="29" id="E5q-QG-8LB"/>
+                            <constraint firstItem="Jcy-17-fRz" firstAttribute="top" secondItem="P8D-Eh-GHB" secondAttribute="bottom" constant="8" id="Onj-am-xFy"/>
+                            <constraint firstItem="CRR-kF-Me3" firstAttribute="top" secondItem="Jcy-17-fRz" secondAttribute="bottom" constant="20" id="Uga-FI-62S"/>
                             <constraint firstItem="P8D-Eh-GHB" firstAttribute="leading" secondItem="jRO-Gx-aQA" secondAttribute="leadingMargin" id="ayO-3O-WX8"/>
-                            <constraint firstItem="3vm-Tx-P1f" firstAttribute="top" secondItem="nk9-hl-762" secondAttribute="bottom" constant="10" id="b2H-4q-pst"/>
                             <constraint firstItem="3vm-Tx-P1f" firstAttribute="trailing" secondItem="jRO-Gx-aQA" secondAttribute="trailingMargin" id="cUU-3k-KdM"/>
+                            <constraint firstItem="Jcy-17-fRz" firstAttribute="trailing" secondItem="jRO-Gx-aQA" secondAttribute="trailingMargin" id="gbO-OM-CXx"/>
                             <constraint firstItem="P8D-Eh-GHB" firstAttribute="top" secondItem="3vm-Tx-P1f" secondAttribute="bottom" constant="8" id="kmw-fD-Knq"/>
-                            <constraint firstItem="CRR-kF-Me3" firstAttribute="top" secondItem="fuD-Wh-574" secondAttribute="bottom" constant="29" id="mw2-Z7-2bb"/>
                             <constraint firstItem="fuD-Wh-574" firstAttribute="top" secondItem="3vm-Tx-P1f" secondAttribute="bottom" constant="8" id="nwN-GG-Pb2"/>
                             <constraint firstItem="P8D-Eh-GHB" firstAttribute="height" secondItem="fuD-Wh-574" secondAttribute="height" id="qKF-7E-Z9o"/>
                             <constraint firstAttribute="width" secondItem="P8D-Eh-GHB" secondAttribute="width" multiplier="9:4" id="x4X-3n-t30"/>
                             <constraint firstItem="3vm-Tx-P1f" firstAttribute="leading" secondItem="jRO-Gx-aQA" secondAttribute="leadingMargin" id="xM5-Gx-fbT"/>
+                            <constraint firstItem="Jcy-17-fRz" firstAttribute="leading" secondItem="jRO-Gx-aQA" secondAttribute="leadingMargin" id="yFm-PL-jnW"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="Q9P-O2-SIm"/>
-                                <exclude reference="mw2-Z7-2bb"/>
+                                <exclude reference="2Rq-5K-Ies"/>
+                                <exclude reference="E5q-QG-8LB"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
                         <outlet property="chartViewContainer" destination="3vm-Tx-P1f" id="Rhi-Ne-dib"/>
                         <outlet property="selectButton" destination="fuD-Wh-574" id="CuX-y3-oWo"/>
+                        <outlet property="similarTableView" destination="Jcy-17-fRz" id="nQd-iy-MmI"/>
                         <segue destination="ARw-D0-eUI" kind="show" identifier="flavorSlider" id="xyy-uv-tHq"/>
                         <segue destination="x0w-fP-7Rg" kind="show" identifier="pairingView" id="y6X-7f-U8F"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OUk-QR-u9A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2490" y="8"/>
+            <point key="canvasLocation" x="2602" y="-36"/>
         </scene>
         <!--Top Pairing View Controller-->
         <scene sceneID="Sxx-gj-ga3">
@@ -1412,6 +1432,7 @@
         <image name="activity" width="25" height="25"/>
         <image name="buttonWell" width="640" height="181"/>
         <image name="darkButtonWell" width="640" height="180"/>
+        <image name="edit" width="17" height="17"/>
         <image name="favorite" width="15" height="15"/>
         <image name="feature" width="600" height="304"/>
         <image name="paring" width="25" height="25"/>

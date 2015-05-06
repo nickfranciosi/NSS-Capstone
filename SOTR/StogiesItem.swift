@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import SwiftyJSON
 
 
 enum ItemType: String {
@@ -73,6 +73,17 @@ class StogiesItem {
         self.name = name
         self.flavor = flavor
         self.description = description
+    }
+    
+    convenience init(item: JSON){
+        var itemName = item["name"].stringValue
+        var itemFlavorProfile = FlavorProfile(salty: item["salty"].intValue, sweet: item["sweet"].intValue,bitter: item["bitter"].intValue,spicy: item["spicy"].intValue,umami: item["umami"].intValue)
+        var postId = item["post_id"].intValue
+        var desc = item["description"].stringValue
+        
+        var pairLink = item["links"]["pairings"].stringValue
+        var simLink = item["links"]["similar"].stringValue
+        self.init(post_id: postId, name: itemName, flavor: itemFlavorProfile, description: desc)
     }
 }
 

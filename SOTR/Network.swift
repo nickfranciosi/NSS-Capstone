@@ -15,17 +15,17 @@ class Network {
     let baseUrl = "http://stogiesontherocks.com/api3/public/"
     
    
-    func getAllofType(type: ItemType, completion: (response: [StogiesItem]) -> ()){
+    func getAllofType(type: ItemType, completion: (response: JSON) -> ()){
         apiCall(type, completion: completion)
     }
     
-    func getByFlavorProfile(flavors: [String: Int], type: ItemType,  completion: (response: [StogiesItem]) -> ()){
+    func getByFlavorProfile(flavors: [String: Int], type: ItemType,  completion: (response: JSON) -> ()){
         println(flavors)
         apiCall(type, withParameters: flavors, completion: completion)
     
     }
     
-    func getByPostId(id: String, type: ItemType, completion: (response: [StogiesItem]) -> ()){
+    func getByPostId(id: String, type: ItemType, completion: (response: JSON) -> ()){
     
         apiCall(type, withPath: "/"+id, completion: completion)
     }
@@ -45,9 +45,9 @@ class Network {
     
         Alamofire.request(.GET, baseUrl + "pairings", parameters: givenParameters).responseJSON { (request, response, data, error) in
             let itemJson = JSON(data!)
-            println(itemJson)
+        
             var votes = itemJson["data"]["votes"].intValue
-            println("votes in call \(votes)")
+           
             completion(repsonse: votes)
         }
 
@@ -59,8 +59,7 @@ class Network {
         
         
         Alamofire.request(.PUT, baseUrl + "pairings?cigar=\(cigarId!)&spirit=\(spiritId!)").responseJSON { (request, response, data, error) in
-           println(request)
-           println(response)
+          
         }
     }
     
@@ -84,16 +83,16 @@ class Network {
     }
     
     
-    private func apiCall(type: ItemType, withPath path: String = "", withParameters parameters: [String: Int]? = nil, completion: (response: [StogiesItem]) -> ()){
+    private func apiCall(type: ItemType, withPath path: String = "", withParameters parameters: [String: Int]? = nil, completion: (response: JSON) -> ()){
         var exactMatches = [StogiesItem]()
         var similarMatches = [StogiesItem]()
         Alamofire.request(.GET, baseUrl + type.rawValue + path, parameters: parameters).responseJSON { (request, response, data, error) in
             let itemJson = JSON(data!)
-            for (index: String, item: JSON) in itemJson["data"]{
-                var thisItem: StogiesItem =  self.buildStogiesItem(item, type: type)
-                exactMatches.append(thisItem)
-            }
-            completion(response: exactMatches)
+//            for (index: String, item: JSON) in itemJson["data"]{
+//                var thisItem: StogiesItem =  self.buildStogiesItem(item, type: type)
+//                exactMatches.append(thisItem)
+//            }
+            completion(response: itemJson)
         }
         
     }

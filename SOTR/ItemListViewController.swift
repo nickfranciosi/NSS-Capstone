@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class ItemListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchControllerDelegate, UISearchResultsUpdating{
 
@@ -78,15 +79,57 @@ class ItemListViewController: UIViewController, UITableViewDataSource, UITableVi
         if let flavorSliderSearchValues = receivedScores {
             network.getByFlavorProfile(flavorSliderSearchValues, type: type, completion: {
                 results in
-                if results.isEmpty{
-                    println("no results found")
+                var newItems = [StogiesItem]()
+                
+                if results["data"].isEmpty {
+                    if(self.type == ItemType.Cigar){
+                        for (index: String, item: JSON) in results["similar"]{
+                            var thisItem = Cigar(item: item["item"])
+                            newItems.append(thisItem)
+                        }
+                    }else{
+                        for (index: String, item: JSON) in results["similar"]{
+                            var thisItem = Spirit(item: item["item"])
+                            newItems.append(thisItem)
+                        }
+                        
+                    }
+                    var slice: Array<StogiesItem>  = Array(newItems[0..<5])
+                    self.refreshTableData(slice)
+                }else{
+                    if(self.type == ItemType.Cigar){
+                        for (index: String, item: JSON) in results["data"]{
+                            var thisItem = Cigar(item: item)
+                            newItems.append(thisItem)
+                        }
+                    }else{
+                        for (index: String, item: JSON) in results["data"]{
+                            var thisItem = Spirit(item: item)
+                            newItems.append(thisItem)
+                        }
+                        
+                    }
+                    self.refreshTableData(newItems)
                 }
-                self.refreshTableData(results)
+                
+               
             })
         }else{
             network.getAllofType(type, completion: {
                 results in
-                self.refreshTableData(results)
+                var newItems = [StogiesItem]()
+                if(self.type == ItemType.Cigar){
+                    for (index: String, item: JSON) in results["data"]{
+                        var thisItem = Cigar(item: item)
+                        newItems.append(thisItem)
+                    }
+                }else{
+                    for (index: String, item: JSON) in results["data"]{
+                        var thisItem = Spirit(item: item)
+                        newItems.append(thisItem)
+                    }
+                }
+                self.refreshTableData(newItems)
             })
         }
         
@@ -104,7 +147,7 @@ class ItemListViewController: UIViewController, UITableViewDataSource, UITableVi
         itemSearchController.active = false
     }
     
-  
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
