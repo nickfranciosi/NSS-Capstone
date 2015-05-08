@@ -29,7 +29,8 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var views: [String: AnyObject] = [:]
     @IBOutlet weak var similarTableView: UITableView!
     
-    
+    var grayColor: UIColor = UIColor(red: 76/255, green: 72/255, blue: 64/255, alpha: 1.0)
+    var darkGrayColor: UIColor = UIColor(red: 48/255, green: 43/255, blue: 38/255, alpha: 1.0)
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -187,11 +188,16 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
     }
     
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "SIMILAR ITEMS"
+    }
+    
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = self.similarTableView.dequeueReusableCellWithIdentifier("simCell", forIndexPath: indexPath) as! UITableViewCell
         var item = similarItems[indexPath.row]
         var name = item.name!
+        cell.textLabel!.textColor = grayColor
         cell.textLabel?.text = name
         return cell
     }
@@ -207,6 +213,17 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         lineChart.clearAll()
         updateItemData()
     }
+    
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        var label : UILabel = UILabel()
+        label.font = UIFont(name: "Helvetica Neue", size: 12.0)
+        label.text = "SIMILAR ITEMS"
+        label.textColor = UIColor.whiteColor()
+        label.backgroundColor = grayColor
+        return label
+    }
+    
     
     /**
     * Line chart delegate method.

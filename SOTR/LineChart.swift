@@ -4,7 +4,7 @@
 import UIKit
 import QuartzCore
 
-
+var grayColor: UIColor = UIColor(red: 76/255, green: 72/255, blue: 64/255, alpha: 1.0)
 
 /**
  * Helpers class
@@ -515,9 +515,9 @@ public class LineChart: UIView {
         
         var text: String
         for (index, value) in enumerate(xAxisData) {
-            var xValue = self.x.scale(CGFloat(index)) + x.axis.inset - (width / 2)
+            var xValue = self.x.scale(CGFloat(index)) + x.axis.inset - (width/2)
             var label = UILabel(frame: CGRect(x: xValue, y: y, width: width, height: x.axis.inset))
-            label.font = UIFont.preferredFontForTextStyle(UIFontTextStyleCaption2)
+            label.font = UIFont(name: "Helvetica Neue", size: 9.0)
             label.textColor = UIColor.whiteColor()
             label.textAlignment = .Center
             if (x.labels.values.count != 0) {
@@ -540,9 +540,9 @@ public class LineChart: UIView {
         var (start, stop, step) = self.y.ticks
         for var i: CGFloat = start; i <= stop; i += step {
             yValue = self.bounds.height - self.y.scale(i) - (y.axis.inset * 1.5)
-            var label = UILabel(frame: CGRect(x: 0, y: yValue, width: y.axis.inset, height: y.axis.inset))
+            var label = UILabel(frame: CGRect(x: 0, y: yValue - 5, width: y.axis.inset, height: y.axis.inset))
             label.font = UIFont.preferredFontForTextStyle(UIFontTextStyleCaption2)
-            label.textColor = UIColor.whiteColor()
+            label.textColor = grayColor
             label.textAlignment = .Center
             label.text = String(Int(round(i)))
             self.addSubview(label)
