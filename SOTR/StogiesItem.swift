@@ -50,8 +50,17 @@ struct FlavorProfile {
     
         var associatedString: String!
         var largestValue = 0
+        var ties: Int = 0
         for (name, value) in items{
-            if value >= largestValue{
+            if value == largestValue{
+                ties++
+                if ties < 2 {
+                    associatedString = "\(associatedString) and \(name)"
+                }else{
+                    associatedString = "full bodied"
+                }
+            }else if value > largestValue{
+                ties = 0
                 largestValue = Int(value)
                 associatedString = name
             }
@@ -84,6 +93,17 @@ class StogiesItem {
         var pairLink = item["links"]["pairings"].stringValue
         var simLink = item["links"]["similar"].stringValue
         self.init(post_id: postId, name: itemName, flavor: itemFlavorProfile, description: desc)
+    }
+    
+    func getStrongestFlavor() -> String{
+        
+        return self.flavor.getProminentFlavor()
+    }
+    
+    func getDescription() -> String{
+    
+        println("Looks like you are fond of a good \(self.getStrongestFlavor()) \(self.type!.rawValue). We recommend the following pairing flavor.")
+        return "Looks like you are fond of a good \(self.getStrongestFlavor()) \(self.type!.rawValue). We recommend the following pairing flavor."
     }
 }
 
@@ -157,8 +177,8 @@ class Pairing {
     }
     
     func getDescription() -> String{
-        var cigarStrongFlavor = getStrongestFlavorOfItem(cigar!)
-        var spiritStrongFlavor = getStrongestFlavorOfItem(spirit!)
+        var cigarStrongFlavor = cigar!.getStrongestFlavor()
+        var spiritStrongFlavor = spirit!.getStrongestFlavor()
         return "This pairing features a \(cigarStrongFlavor) cigar with a \(spiritStrongFlavor) spirit. "
     }
     

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C867A231B023A4900E7E245 /* SecondFlavorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C867A221B023A4900E7E245 /* SecondFlavorViewController.swift */; };
+		5C867A251B02465D00E7E245 /* StogiesButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C867A241B02465D00E7E245 /* StogiesButton.swift */; };
 		5C8744741AD303D2002DB2E8 /* ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C8744731AD303D2002DB2E8 /* ionicons.ttf */; };
 		5C87447A1AD3223F002DB2E8 /* LineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8744791AD3223F002DB2E8 /* LineChart.swift */; };
 		5C8A91CB1ADEB6B60013BFED /* TopPairingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8A91CA1ADEB6B60013BFED /* TopPairingViewController.swift */; };
@@ -38,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5C867A221B023A4900E7E245 /* SecondFlavorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondFlavorViewController.swift; sourceTree = "<group>"; };
+		5C867A241B02465D00E7E245 /* StogiesButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StogiesButton.swift; sourceTree = "<group>"; };
 		5C8744721AD2EEF9002DB2E8 /* FontAwesome-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FontAwesome-Bridging-Header.h"; sourceTree = "<group>"; };
 		5C8744731AD303D2002DB2E8 /* ionicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = ionicons.ttf; path = Pods/FontAwesomeKit/FontAwesomeKit/ionicons.ttf; sourceTree = "<group>"; };
 		5C8744791AD3223F002DB2E8 /* LineChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineChart.swift; sourceTree = "<group>"; };
@@ -119,10 +123,12 @@
 			children = (
 				5C945DBE1A407E310012DC72 /* AppDelegate.swift */,
 				5C945DC01A407E310012DC72 /* FirstViewController.swift */,
+				5C867A241B02465D00E7E245 /* StogiesButton.swift */,
 				5C945DC21A407E310012DC72 /* SecondViewController.swift */,
 				5CE8FA1E1AC0607C00D4BC46 /* DetailViewController.swift */,
 				5CB0EE161ADC6B2B00266912 /* PairingViewController.swift */,
 				5CF8D46C1AAE156300A5FBB3 /* FlavorProfileSliderViewController.swift */,
+				5C867A221B023A4900E7E245 /* SecondFlavorViewController.swift */,
 				5C8A91CA1ADEB6B60013BFED /* TopPairingViewController.swift */,
 				5CEAA5351AAE36360094620D /* ItemListViewController.swift */,
 				5C8A91CE1ADF06A90013BFED /* VoteView.swift */,
@@ -328,10 +334,12 @@
 				5C8A91CF1ADF06A90013BFED /* VoteView.swift in Sources */,
 				5CEAA5381AAE36910094620D /* StogiesItem.swift in Sources */,
 				5C87447A1AD3223F002DB2E8 /* LineChart.swift in Sources */,
+				5C867A231B023A4900E7E245 /* SecondFlavorViewController.swift in Sources */,
 				5CB0EE151ADC025E00266912 /* Network.swift in Sources */,
 				5C8A91CB1ADEB6B60013BFED /* TopPairingViewController.swift in Sources */,
 				5CB0EE171ADC6B2B00266912 /* PairingViewController.swift in Sources */,
 				5C945DBF1A407E310012DC72 /* AppDelegate.swift in Sources */,
+				5C867A251B02465D00E7E245 /* StogiesButton.swift in Sources */,
 				5C945DC11A407E310012DC72 /* FirstViewController.swift in Sources */,
 				5CF8D46D1AAE156300A5FBB3 /* FlavorProfileSliderViewController.swift in Sources */,
 				5CE8FA1F1AC0607C00D4BC46 /* DetailViewController.swift in Sources */,

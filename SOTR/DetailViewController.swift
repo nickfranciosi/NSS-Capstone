@@ -148,14 +148,14 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if (segue.identifier == "flavorSlider"){
+        if (segue.identifier == "secondSlider"){
             if let setPairing = pairing{
                 pairing = setPairing
             }else{
                  pairing = Pairing(item: currentItem)
             }
             
-            var sliderVC: FlavorProfileSliderViewController = segue.destinationViewController as! FlavorProfileSliderViewController
+            var sliderVC: SecondFlavorViewController = segue.destinationViewController as! SecondFlavorViewController
             sliderVC.typeChoice = pairing!.getUnselectedType()
             sliderVC.pairing = pairing
         }else if(segue.identifier == "pairingView"){
@@ -183,7 +183,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
             }
             
         }else{
-            performSegueWithIdentifier("flavorSlider", sender: self)
+            performSegueWithIdentifier("secondSlider", sender: self)
         }
         
     }
