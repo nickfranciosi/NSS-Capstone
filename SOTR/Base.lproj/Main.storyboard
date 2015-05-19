@@ -273,7 +273,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NWa-ek-iwG">
-                                        <rect key="frame" x="8" y="54" width="552" height="36"/>
+                                        <rect key="frame" x="8" y="38" width="552" height="36"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Salty" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XRY-o8-m4o">
                                                 <rect key="frame" x="8" y="10" width="30" height="16"/>
@@ -316,7 +316,7 @@
                                         </variation>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x3s-DN-ss7">
-                                        <rect key="frame" x="8" y="98" width="552" height="36"/>
+                                        <rect key="frame" x="8" y="82" width="552" height="36"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sweet" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IBq-2U-YPj">
                                                 <rect key="frame" x="8" y="10" width="38" height="16"/>
@@ -359,7 +359,7 @@
                                         </variation>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n54-Py-Kcd">
-                                        <rect key="frame" x="8" y="142" width="552" height="36"/>
+                                        <rect key="frame" x="8" y="126" width="552" height="36"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bitter" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CaK-bw-mzh">
                                                 <rect key="frame" x="8" y="10" width="33" height="16"/>
@@ -402,7 +402,7 @@
                                         </variation>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CyX-Cy-GG7">
-                                        <rect key="frame" x="8" y="186" width="552" height="36"/>
+                                        <rect key="frame" x="8" y="170" width="552" height="36"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Spicy" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hJ5-Fr-QmJ">
                                                 <rect key="frame" x="8" y="10" width="34" height="16"/>
@@ -445,7 +445,7 @@
                                         </variation>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AWU-93-pAk">
-                                        <rect key="frame" x="8" y="230" width="552" height="36"/>
+                                        <rect key="frame" x="8" y="214" width="552" height="36"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Umami" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E1V-wm-yvR">
                                                 <rect key="frame" x="8" y="10" width="43" height="16"/>
@@ -507,7 +507,7 @@
                                     <constraint firstAttribute="trailing" secondItem="n54-Py-Kcd" secondAttribute="trailing" constant="8" id="2hs-Hz-pja"/>
                                     <constraint firstItem="n54-Py-Kcd" firstAttribute="height" secondItem="NWa-ek-iwG" secondAttribute="height" id="4P1-lf-Bxi"/>
                                     <constraint firstItem="NWa-ek-iwG" firstAttribute="leading" secondItem="LvL-Ru-tum" secondAttribute="leading" constant="8" id="7cW-iV-Hix"/>
-                                    <constraint firstItem="NWa-ek-iwG" firstAttribute="top" secondItem="EK4-be-h2Q" secondAttribute="bottom" constant="31" id="8ty-c8-21x"/>
+                                    <constraint firstItem="NWa-ek-iwG" firstAttribute="top" secondItem="EK4-be-h2Q" secondAttribute="bottom" constant="15" id="8ty-c8-21x"/>
                                     <constraint firstItem="CyX-Cy-GG7" firstAttribute="height" secondItem="NWa-ek-iwG" secondAttribute="height" id="A7E-JX-XXz"/>
                                     <constraint firstAttribute="height" secondItem="NWa-ek-iwG" secondAttribute="height" multiplier="10:1" id="ESB-gQ-W8f"/>
                                     <constraint firstItem="CyX-Cy-GG7" firstAttribute="leading" secondItem="LvL-Ru-tum" secondAttribute="leading" constant="8" id="Eqk-IC-3N3"/>
@@ -535,13 +535,6 @@
                                     <constraint firstItem="EK4-be-h2Q" firstAttribute="top" secondItem="LvL-Ru-tum" secondAttribute="top" constant="8" id="xnh-GM-C2w"/>
                                 </constraints>
                             </view>
-                            <searchBar contentMode="redraw" barStyle="black" placeholder="Search Cigars" translatesAutoresizingMaskIntoConstraints="NO" id="dHp-Ln-slJ">
-                                <rect key="frame" x="16" y="499" width="568" height="44"/>
-                                <color key="backgroundColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="barTintColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vlk-6l-Vn1">
                                 <rect key="frame" x="16" y="463" width="175" height="26"/>
                                 <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -599,22 +592,19 @@
                         </subviews>
                         <color key="backgroundColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="dHp-Ln-slJ" firstAttribute="top" secondItem="aZ9-tS-W57" secondAttribute="bottom" constant="10" id="0ln-dw-oAW"/>
                             <constraint firstAttribute="centerX" secondItem="HLA-cy-D8P" secondAttribute="centerX" id="151-ab-fwb"/>
-                            <constraint firstItem="dHp-Ln-slJ" firstAttribute="leading" secondItem="9e1-Aq-YjB" secondAttribute="leadingMargin" id="16v-q6-90E"/>
                             <constraint firstItem="LvL-Ru-tum" firstAttribute="top" secondItem="XPI-Y6-SXu" secondAttribute="bottom" constant="8" id="7eF-i3-jA3"/>
                             <constraint firstItem="vlk-6l-Vn1" firstAttribute="leading" secondItem="9e1-Aq-YjB" secondAttribute="leadingMargin" id="8Dc-2V-GSe"/>
-                            <constraint firstItem="dHp-Ln-slJ" firstAttribute="top" secondItem="vlk-6l-Vn1" secondAttribute="bottom" constant="10" id="J2c-ZY-Xic"/>
-                            <constraint firstItem="dHp-Ln-slJ" firstAttribute="top" secondItem="HLA-cy-D8P" secondAttribute="bottom" constant="10" id="LwP-aI-skU"/>
+                            <constraint firstItem="aZ9-tS-W57" firstAttribute="top" secondItem="LvL-Ru-tum" secondAttribute="bottom" constant="31" id="Cc9-hq-nVp"/>
                             <constraint firstItem="LvL-Ru-tum" firstAttribute="height" secondItem="9e1-Aq-YjB" secondAttribute="height" multiplier="3:5" id="MoX-T9-dQd"/>
-                            <constraint firstItem="dHp-Ln-slJ" firstAttribute="trailing" secondItem="9e1-Aq-YjB" secondAttribute="trailingMargin" id="QPw-AS-p7s"/>
                             <constraint firstItem="aZ9-tS-W57" firstAttribute="width" secondItem="HLA-cy-D8P" secondAttribute="width" id="VuV-mW-Tw2"/>
                             <constraint firstItem="LvL-Ru-tum" firstAttribute="leading" secondItem="9e1-Aq-YjB" secondAttribute="leadingMargin" id="Wr5-2Y-dJK"/>
                             <constraint firstAttribute="width" secondItem="HLA-cy-D8P" secondAttribute="width" multiplier="24:7" id="c3B-fj-801"/>
+                            <constraint firstItem="HLA-cy-D8P" firstAttribute="top" secondItem="Dmh-cV-XQC" secondAttribute="bottom" constant="39" id="eSo-Un-0wR"/>
                             <constraint firstItem="aZ9-tS-W57" firstAttribute="trailing" secondItem="9e1-Aq-YjB" secondAttribute="trailingMargin" id="gih-ZZ-3ZK"/>
                             <constraint firstItem="LvL-Ru-tum" firstAttribute="trailing" secondItem="9e1-Aq-YjB" secondAttribute="trailingMargin" id="h1H-YA-qmF"/>
                             <constraint firstItem="vlk-6l-Vn1" firstAttribute="width" secondItem="HLA-cy-D8P" secondAttribute="width" id="k1v-jM-KIX"/>
-                            <constraint firstItem="0N6-ZI-eYs" firstAttribute="top" secondItem="dHp-Ln-slJ" secondAttribute="bottom" constant="8" id="nqe-63-Be4"/>
+                            <constraint firstItem="vlk-6l-Vn1" firstAttribute="top" secondItem="LvL-Ru-tum" secondAttribute="bottom" constant="31" id="oEh-gN-rZq"/>
                         </constraints>
                     </view>
                     <connections>
@@ -623,7 +613,6 @@
                         <outlet property="introText" destination="EK4-be-h2Q" id="75e-Ss-16j"/>
                         <outlet property="saltySlider" destination="STB-SZ-UJ3" id="NEj-7T-rdy"/>
                         <outlet property="saltyValueLabel" destination="WXo-F8-o98" id="nw1-KT-VMr"/>
-                        <outlet property="searchBar" destination="dHp-Ln-slJ" id="ljJ-jo-Wl2"/>
                         <outlet property="spicySlider" destination="yjw-qd-SkN" id="emf-TZ-5Ty"/>
                         <outlet property="spicyValueLabel" destination="n2Y-xg-ltc" id="GB8-Hf-Ma8"/>
                         <outlet property="sweetSlider" destination="6BJ-SQ-A8U" id="2PH-qs-nuI"/>
@@ -735,6 +724,9 @@
                                                 <color key="minimumTrackTintColor" red="0.37254901959999998" green="0.35294117650000001" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="maximumTrackTintColor" red="0.37254901959999998" green="0.35294117650000001" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="thumbTintColor" red="0.37254901959999998" green="0.35294117650000001" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <connections>
+                                                    <action selector="sliderValueChanged:" destination="VA4-3d-L5q" eventType="valueChanged" id="E1l-MB-Pnx"/>
+                                                </connections>
                                             </slider>
                                         </subviews>
                                         <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -755,7 +747,7 @@
                                         </variation>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mCn-je-VPx">
-                                        <rect key="frame" x="8" y="184" width="552" height="48"/>
+                                        <rect key="frame" x="8" y="181" width="552" height="48"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sweet" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wbh-Ch-ehB">
                                                 <rect key="frame" x="8" y="16" width="38" height="16"/>
@@ -775,6 +767,9 @@
                                                 <color key="minimumTrackTintColor" red="0.37254901959999998" green="0.35294117650000001" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="maximumTrackTintColor" red="0.37254901959999998" green="0.35294117650000001" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="thumbTintColor" red="0.37254901959999998" green="0.35294117650000001" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <connections>
+                                                    <action selector="sliderValueChanged:" destination="VA4-3d-L5q" eventType="valueChanged" id="Ff6-gP-mxX"/>
+                                                </connections>
                                             </slider>
                                         </subviews>
                                         <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -795,7 +790,7 @@
                                         </variation>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xVR-xf-xgd">
-                                        <rect key="frame" x="8" y="240" width="552" height="47"/>
+                                        <rect key="frame" x="8" y="234" width="552" height="47"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bitter" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WyF-DD-SPh">
                                                 <rect key="frame" x="8" y="16" width="33" height="16"/>
@@ -815,6 +810,9 @@
                                                 <color key="minimumTrackTintColor" red="0.37254901959999998" green="0.35294117650000001" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="maximumTrackTintColor" red="0.37254901959999998" green="0.35294117650000001" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="thumbTintColor" red="0.37254901959999998" green="0.35294117650000001" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <connections>
+                                                    <action selector="sliderValueChanged:" destination="VA4-3d-L5q" eventType="valueChanged" id="TUN-CA-3gM"/>
+                                                </connections>
                                             </slider>
                                         </subviews>
                                         <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -835,7 +833,7 @@
                                         </variation>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iot-CB-Ljc">
-                                        <rect key="frame" x="8" y="295" width="552" height="47"/>
+                                        <rect key="frame" x="8" y="286" width="552" height="47"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Spicy" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qhg-uQ-0xr">
                                                 <rect key="frame" x="8" y="16" width="34" height="16"/>
@@ -855,6 +853,9 @@
                                                 <color key="minimumTrackTintColor" red="0.37254901959999998" green="0.35294117650000001" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="maximumTrackTintColor" red="0.37254901959999998" green="0.35294117650000001" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="thumbTintColor" red="0.37254901959999998" green="0.35294117650000001" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <connections>
+                                                    <action selector="sliderValueChanged:" destination="VA4-3d-L5q" eventType="valueChanged" id="e2c-hH-7cl"/>
+                                                </connections>
                                             </slider>
                                         </subviews>
                                         <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -875,7 +876,7 @@
                                         </variation>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ayy-Wo-WS5">
-                                        <rect key="frame" x="8" y="350" width="552" height="48"/>
+                                        <rect key="frame" x="8" y="338" width="552" height="48"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Umami" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y3m-Zm-Ded">
                                                 <rect key="frame" x="8" y="16" width="43" height="16"/>
@@ -895,6 +896,9 @@
                                                 <color key="minimumTrackTintColor" red="0.37254901959999998" green="0.35294117650000001" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="maximumTrackTintColor" red="0.37254901959999998" green="0.35294117650000001" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="thumbTintColor" red="0.37254901959999998" green="0.35294117650000001" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <connections>
+                                                    <action selector="sliderValueChanged:" destination="VA4-3d-L5q" eventType="valueChanged" id="8kn-3v-mh3"/>
+                                                </connections>
                                             </slider>
                                         </subviews>
                                         <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -929,19 +933,19 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pairing" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LPH-eh-ph3">
-                                        <rect key="frame" x="16" y="93" width="42" height="16"/>
+                                        <rect key="frame" x="16" y="103" width="42" height="16"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" red="0.37254901959999998" green="0.35294117650000001" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Intensity" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xK1-Nl-MYF">
-                                        <rect key="frame" x="16" y="43" width="51" height="16"/>
+                                        <rect key="frame" x="16" y="53" width="51" height="16"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" red="0.37254901959999998" green="0.35294117650000001" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cPF-5B-BoY" customClass="StogiesButton" customModule="SOTR" customModuleProvider="target">
-                                        <rect key="frame" x="379" y="30" width="172" height="27"/>
+                                        <rect key="frame" x="379" y="40" width="172" height="27"/>
                                         <color key="backgroundColor" red="0.98823529409999999" green="0.74509803919999995" blue="0.01176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <state key="normal" title="Strong">
@@ -953,7 +957,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OHL-Kt-KRY" customClass="StogiesButton" customModule="SOTR" customModuleProvider="target">
-                                        <rect key="frame" x="198" y="80" width="173" height="27"/>
+                                        <rect key="frame" x="198" y="90" width="173" height="27"/>
                                         <color key="backgroundColor" red="0.98823529409999999" green="0.74509803919999995" blue="0.01176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <state key="normal" title="Compliment">
@@ -965,7 +969,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UyN-Xn-64f" customClass="StogiesButton" customModule="SOTR" customModuleProvider="target">
-                                        <rect key="frame" x="379" y="80" width="172" height="27"/>
+                                        <rect key="frame" x="379" y="90" width="172" height="27"/>
                                         <color key="backgroundColor" red="0.98823529409999999" green="0.74509803919999995" blue="0.01176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <state key="normal" title="Contrast">
@@ -977,7 +981,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RoA-YB-De9" customClass="StogiesButton" customModule="SOTR" customModuleProvider="target">
-                                        <rect key="frame" x="198" y="30" width="173" height="27"/>
+                                        <rect key="frame" x="198" y="40" width="173" height="27"/>
                                         <color key="backgroundColor" red="0.98823529409999999" green="0.74509803919999995" blue="0.01176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <state key="normal" title="Mild">
@@ -995,7 +999,7 @@
                                     <constraint firstItem="OHL-Kt-KRY" firstAttribute="centerY" secondItem="LPH-eh-ph3" secondAttribute="centerY" constant="-7" id="1x0-U8-6M1"/>
                                     <constraint firstAttribute="trailing" secondItem="aof-UL-2u8" secondAttribute="trailing" id="50d-xt-lh1"/>
                                     <constraint firstItem="cPF-5B-BoY" firstAttribute="leading" secondItem="RoA-YB-De9" secondAttribute="trailing" constant="17" id="523-48-0iz"/>
-                                    <constraint firstItem="iot-CB-Ljc" firstAttribute="top" secondItem="xVR-xf-xgd" secondAttribute="bottom" constant="8" id="6Db-B9-j4A"/>
+                                    <constraint firstItem="iot-CB-Ljc" firstAttribute="top" secondItem="xVR-xf-xgd" secondAttribute="bottom" constant="5" id="6Db-B9-j4A"/>
                                     <constraint firstAttribute="trailing" secondItem="mCn-je-VPx" secondAttribute="trailing" constant="8" id="6gg-zS-Azf"/>
                                     <constraint firstAttribute="height" secondItem="NwH-w3-WAg" secondAttribute="height" multiplier="10:1" id="6mP-w7-Dqh"/>
                                     <constraint firstItem="TCe-oq-2T6" firstAttribute="leading" secondItem="0Jp-3m-Dh0" secondAttribute="leading" constant="8" id="8jI-a7-nrS"/>
@@ -1007,7 +1011,7 @@
                                     <constraint firstItem="Kij-tH-qrv" firstAttribute="width" secondItem="RoA-YB-De9" secondAttribute="width" multiplier="2:1" id="CrS-va-5z1"/>
                                     <constraint firstItem="RoA-YB-De9" firstAttribute="centerY" secondItem="cPF-5B-BoY" secondAttribute="centerY" id="ENg-h4-Yk8"/>
                                     <constraint firstItem="UyN-Xn-64f" firstAttribute="centerX" secondItem="NwH-w3-WAg" secondAttribute="centerX" constant="181" id="Ewt-7V-7FV"/>
-                                    <constraint firstItem="ayy-Wo-WS5" firstAttribute="top" secondItem="iot-CB-Ljc" secondAttribute="bottom" constant="8" id="Fig-Gh-5OY"/>
+                                    <constraint firstItem="ayy-Wo-WS5" firstAttribute="top" secondItem="iot-CB-Ljc" secondAttribute="bottom" constant="5" id="Fig-Gh-5OY"/>
                                     <constraint firstItem="iot-CB-Ljc" firstAttribute="leading" secondItem="0Jp-3m-Dh0" secondAttribute="leading" constant="8" id="IfU-Tb-7Ii"/>
                                     <constraint firstItem="UyN-Xn-64f" firstAttribute="trailing" secondItem="Kij-tH-qrv" secondAttribute="trailing" constant="13" id="Ihq-Cd-Sr2"/>
                                     <constraint firstItem="Kij-tH-qrv" firstAttribute="trailing" secondItem="cPF-5B-BoY" secondAttribute="trailing" constant="-13" id="Irn-nk-Khz"/>
@@ -1048,10 +1052,10 @@
                                     <constraint firstItem="UyN-Xn-64f" firstAttribute="top" secondItem="cPF-5B-BoY" secondAttribute="bottom" constant="20" id="sFN-mh-4ts"/>
                                     <constraint firstAttribute="trailing" secondItem="cPF-5B-BoY" secondAttribute="trailing" constant="8" id="sze-wN-jLM"/>
                                     <constraint firstItem="UyN-Xn-64f" firstAttribute="leading" secondItem="OHL-Kt-KRY" secondAttribute="trailing" constant="17" id="txi-iD-FQm"/>
-                                    <constraint firstItem="xVR-xf-xgd" firstAttribute="top" secondItem="mCn-je-VPx" secondAttribute="bottom" constant="8" id="vlw-xH-Uvp"/>
-                                    <constraint firstItem="NwH-w3-WAg" firstAttribute="top" secondItem="LPH-eh-ph3" secondAttribute="bottom" constant="20" id="wct-1R-PQb"/>
+                                    <constraint firstItem="xVR-xf-xgd" firstAttribute="top" secondItem="mCn-je-VPx" secondAttribute="bottom" constant="5" id="vlw-xH-Uvp"/>
+                                    <constraint firstItem="NwH-w3-WAg" firstAttribute="top" secondItem="LPH-eh-ph3" secondAttribute="bottom" constant="10" id="wct-1R-PQb"/>
                                     <constraint firstItem="OHL-Kt-KRY" firstAttribute="top" secondItem="RoA-YB-De9" secondAttribute="bottom" constant="20" id="xla-2G-9VF"/>
-                                    <constraint firstItem="mCn-je-VPx" firstAttribute="top" secondItem="NwH-w3-WAg" secondAttribute="bottom" constant="8" id="y76-hP-xeI"/>
+                                    <constraint firstItem="mCn-je-VPx" firstAttribute="top" secondItem="NwH-w3-WAg" secondAttribute="bottom" constant="5" id="y76-hP-xeI"/>
                                     <constraint firstItem="LPH-eh-ph3" firstAttribute="leading" secondItem="0Jp-3m-Dh0" secondAttribute="leading" constant="16" id="zKJ-uM-aD5"/>
                                 </constraints>
                                 <variation key="default">
@@ -1101,15 +1105,20 @@
                     </view>
                     <connections>
                         <outlet property="bitterSlider" destination="MoC-hb-z8N" id="eYR-CJ-Jgr"/>
+                        <outlet property="bitterValueLabel" destination="Q45-r4-d5m" id="0s2-rb-3Xw"/>
                         <outlet property="choiceDescription" destination="TCe-oq-2T6" id="dfK-8V-NIc"/>
                         <outlet property="complimentButton" destination="OHL-Kt-KRY" id="JMU-zy-9ib"/>
                         <outlet property="contrastButton" destination="UyN-Xn-64f" id="XYi-Gd-KBs"/>
                         <outlet property="mildButton" destination="RoA-YB-De9" id="fTQ-l6-u3p"/>
                         <outlet property="saltySlider" destination="Kij-tH-qrv" id="8OW-zm-ulb"/>
+                        <outlet property="saltyValueLabel" destination="GPd-a6-f4g" id="XaJ-v3-sR1"/>
                         <outlet property="spicySlider" destination="l2P-AF-PKA" id="0fp-EF-6uw"/>
+                        <outlet property="spicyValueLabel" destination="gQE-5y-P0U" id="3Le-i0-aBC"/>
                         <outlet property="strongButton" destination="cPF-5B-BoY" id="Isg-Jl-Fpx"/>
                         <outlet property="sweetSlider" destination="i4A-uP-yDk" id="171-3K-5ta"/>
+                        <outlet property="sweetValueLabel" destination="piV-TG-l33" id="0vb-H5-yFp"/>
                         <outlet property="umamiSlider" destination="TwU-cL-mI2" id="hQI-bF-ijc"/>
+                        <outlet property="umamiValueLabel" destination="ULV-yt-yt4" id="29q-n7-AKr"/>
                         <segue destination="ebV-m5-Zmj" kind="show" identifier="itemListSegue" id="Flz-6I-aBK"/>
                     </connections>
                 </viewController>

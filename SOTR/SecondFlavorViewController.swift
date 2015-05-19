@@ -15,6 +15,15 @@ class SecondFlavorViewController: UIViewController {
     @IBOutlet weak var complimentButton: StogiesButton!
     @IBOutlet weak var contrastButton: StogiesButton!
     
+    
+    @IBOutlet weak var saltyValueLabel: UILabel!
+    @IBOutlet weak var sweetValueLabel: UILabel!
+    @IBOutlet weak var bitterValueLabel: UILabel!
+    @IBOutlet weak var spicyValueLabel: UILabel!
+    @IBOutlet weak var umamiValueLabel: UILabel!
+
+    
+    
     @IBOutlet weak var saltySlider: UISlider!
     @IBOutlet weak var sweetSlider: UISlider!
     @IBOutlet weak var bitterSlider: UISlider!
@@ -27,15 +36,29 @@ class SecondFlavorViewController: UIViewController {
     var recievedItem: StogiesItem!
     
     
+    var sliderValueMap:[UISlider:UILabel]!
+    
     var pairing: Pairing?
     
-    let cigar = Cigar(post_id: 2, name: "TestCigar", flavor: FlavorProfile(salty:2, sweet: 2, bitter: 4, spicy: 4, umami: 4), description: "just a description")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         choiceDescription.text! = recievedItem.getDescription()
         setInitialButtonState()
+        
+        sliderValueMap  = [
+            saltySlider : saltyValueLabel,
+            sweetSlider : sweetValueLabel,
+            bitterSlider : bitterValueLabel,
+            spicySlider : spicyValueLabel,
+            umamiSlider : umamiValueLabel
+        ]
+        
+        for slider in sliderValueMap.keys{
+            updateTextVauleWithSliderValue(slider)
+        }
+
       
     }
 
@@ -110,6 +133,11 @@ class SecondFlavorViewController: UIViewController {
          performSegueWithIdentifier("itemListSegue", sender: self)
     }
     
+    @IBAction func sliderValueChanged(sender: AnyObject) {
+        var slider = sender as! UISlider
+        updateTextVauleWithSliderValue(slider)
+    }
+    
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         var tableVC: ItemListViewController = segue.destinationViewController as! ItemListViewController
@@ -119,6 +147,13 @@ class SecondFlavorViewController: UIViewController {
        tableVC.type = typeChoice
         tableVC.receivedPairing = pairing
         
+    }
+    
+    func updateTextVauleWithSliderValue(slider: UISlider) -> Void {
+        var label = sliderValueMap[slider]
+        var rating = Int(slider.value)
+        
+        label!.text = String(rating)
     }
 
     

@@ -29,8 +29,6 @@ class FlavorProfileSliderViewController: UIViewController {
     
     @IBOutlet weak var introText: UILabel!
     
-    @IBOutlet weak var searchBar: UISearchBar!
-    
     var stogiesItems = [StogiesItem]()
     var sliderValueMap:[UISlider:UILabel]!
     var flavorChoices: [String : Int]!
@@ -64,7 +62,7 @@ class FlavorProfileSliderViewController: UIViewController {
         
 
         introText.text! = "What \(typeChoice.rawValue.substringToIndex(typeChoice.rawValue.endIndex.predecessor())) flavor(s) are you looking for?"
-        searchBar.placeholder! = "Search \(typeChoice.rawValue.capitalizedString)"
+       
         
         
     }
