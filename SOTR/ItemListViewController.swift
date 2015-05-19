@@ -32,6 +32,7 @@ class ItemListViewController: UIViewController, UITableViewDataSource, UITableVi
     var activityIndicator = UIActivityIndicatorView()
     
     
+    @IBOutlet weak var filterSegmentController: UISegmentedControl!
     
     @IBOutlet var tableView: UITableView!
     
@@ -63,15 +64,6 @@ class ItemListViewController: UIViewController, UITableViewDataSource, UITableVi
         return controller
         })()
         
-        let segItems = ["Purple", "Green", "Blue"]
-        var segmentedControl = UISegmentedControl(items: segItems)
-        segmentedControl.selectedSegmentIndex = 0
-        
-        let frame = UIScreen.mainScreen().bounds
-        segmentedControl.frame = CGRectMake(frame.minX + 10, frame.minY + 50,
-            frame.width - 20, frame.height*0.1)
-        
-//        self.view.addSubview(segmentedControl)
         
         
         refreshTableData(items)

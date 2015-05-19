@@ -157,6 +157,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
             var sliderVC: SecondFlavorViewController = segue.destinationViewController as! SecondFlavorViewController
             sliderVC.typeChoice = pairing!.getUnselectedType()
+            sliderVC.recievedItem = currentItem
             sliderVC.pairing = pairing
         }else if(segue.identifier == "pairingView"){
             var pairingVC: PairingViewController = segue.destinationViewController as! PairingViewController

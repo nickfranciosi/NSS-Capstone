@@ -102,8 +102,12 @@ class StogiesItem {
     
     func getDescription() -> String{
     
-        println("Looks like you are fond of a good \(self.getStrongestFlavor()) \(self.type!.rawValue). We recommend the following pairing flavor.")
-        return "Looks like you are fond of a good \(self.getStrongestFlavor()) \(self.type!.rawValue). We recommend the following pairing flavor."
+        println("Looks like you are fond of a good \(self.getStrongestFlavor()) \(self.getSingularType()). We recommend the following pairing flavor.")
+        return "Looks like you are fond of a good \(self.getStrongestFlavor()) \(self.getSingularType()). We recommend the following pairing flavor."
+    }
+    
+    func getSingularType() -> String{
+       return  self.type!.rawValue.substringToIndex(self.type!.rawValue.endIndex.predecessor())
     }
 }
 

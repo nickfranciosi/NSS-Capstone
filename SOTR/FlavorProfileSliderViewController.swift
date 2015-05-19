@@ -60,17 +60,10 @@ class FlavorProfileSliderViewController: UIViewController {
             updateTextVauleWithSliderValue(slider)
         }
         
-//        
-//        var network = Network()
-//        network.getAllofType(typeChoice, completion: {
-//            response in
-//            self.stogiesItems = response
-//        
-//        })
-//       
+
         
 
-        introText.text! = "What \(typeChoice.rawValue) flavor(s) are you looking for?"
+        introText.text! = "What \(typeChoice.rawValue.substringToIndex(typeChoice.rawValue.endIndex.predecessor())) flavor(s) are you looking for?"
         searchBar.placeholder! = "Search \(typeChoice.rawValue.capitalizedString)"
         
         

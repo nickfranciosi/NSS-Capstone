@@ -24,7 +24,7 @@ class SecondFlavorViewController: UIViewController {
     @IBOutlet weak var choiceDescription: UILabel!
     
     var typeChoice: ItemType!
-    
+    var recievedItem: StogiesItem!
     
     
     var pairing: Pairing?
@@ -34,9 +34,9 @@ class SecondFlavorViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        choiceDescription.text! = cigar.getDescription()
+        choiceDescription.text! = recievedItem.getDescription()
         setInitialButtonState()
-       
+      
     }
 
     override func didReceiveMemoryWarning() {
@@ -86,7 +86,7 @@ class SecondFlavorViewController: UIViewController {
     
     
     func setInitialButtonState(){
-       var recommendation =  cigar.flavor.getRecommendation()
+       var recommendation =  recievedItem.flavor.getRecommendation()
         
         if recommendation == "mild" {
             self.mildSelected(self)
