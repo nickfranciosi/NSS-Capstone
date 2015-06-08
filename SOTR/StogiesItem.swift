@@ -16,17 +16,16 @@ enum ItemType: String {
 }
 
 struct FlavorProfile {
-    let salty : Int
-    let sweet : Int
-    let bitter : Int
-    let spicy : Int
-    let umami : Int
-    
-    
+    var salty : Int
+    var sweet : Int
+    var bitter : Int
+    var spicy : Int
+    var umami : Int
+   
     
     
     func getProminentFlavor() -> String{
-        let flavorArray = [
+        var flavorArray = [
             "salty" : salty,
             "sweet" : sweet,
             "bitter" : bitter,
@@ -67,6 +66,66 @@ struct FlavorProfile {
         }
         
         return associatedString
+    }
+    
+     func getMildAndContrast()->FlavorProfile{
+       var currentFlavor = FlavorProfile(salty: self.salty, sweet: self.sweet, bitter: self.bitter, spicy: self.spicy, umami: self.umami)
+        var newFlavor = mild(currentFlavor)
+        newFlavor = constrast(newFlavor)
+        return newFlavor
+    }
+    
+     func getMildAndCompliment()->FlavorProfile{
+        var currentFlavor = FlavorProfile(salty: self.salty, sweet: self.sweet, bitter: self.bitter, spicy: self.spicy, umami: self.umami)
+        var newFlavor = mild(currentFlavor)
+        newFlavor = compliment(newFlavor)
+        return newFlavor
+    }
+
+    func getStrongAndContrast()->FlavorProfile{
+        var currentFlavor = FlavorProfile(salty: self.salty, sweet: self.sweet, bitter: self.bitter, spicy: self.spicy, umami: self.umami)
+        var newFlavor = strong(currentFlavor)
+        newFlavor = constrast(newFlavor)
+        return newFlavor
+    }
+    
+    func getStrongAndCompliment()->FlavorProfile{
+        var currentFlavor = FlavorProfile(salty: self.salty, sweet: self.sweet, bitter: self.bitter, spicy: self.spicy, umami: self.umami)
+        var newFlavor = strong(currentFlavor)
+        newFlavor = compliment(newFlavor)
+        return newFlavor
+    }
+
+     private func mild(flavorToChange: FlavorProfile)->FlavorProfile{
+        var updatedFlavor = newFlavorIncrementedby(-1, flavorToChange: flavorToChange)
+        println("mild flavor")
+        return updatedFlavor
+    }
+    
+    private func strong(flavorToChange: FlavorProfile)->FlavorProfile{
+        var updatedFlavor = newFlavorIncrementedby(1, flavorToChange: flavorToChange)
+        println("strong flavor")
+        return updatedFlavor
+    }
+    
+    private func constrast(flavorToChange: FlavorProfile)->FlavorProfile{
+        var updatedFlavor = newFlavorIncrementedby(1, flavorToChange: flavorToChange)
+        println("constrast flavor")
+        return updatedFlavor
+        
+    }
+
+    private func compliment(flavorToChange: FlavorProfile)->FlavorProfile{
+        var updatedFlavor = newFlavorIncrementedby(3, flavorToChange: flavorToChange)
+        println("compliment flavor")
+        return updatedFlavor
+        
+    }
+    
+    private func newFlavorIncrementedby(amount: Int, flavorToChange: FlavorProfile) -> FlavorProfile{
+        var updatedFlavor = FlavorProfile(salty: flavorToChange.salty.advancedBy(amount), sweet: flavorToChange.sweet.advancedBy(amount), bitter: flavorToChange.bitter.advancedBy(amount), spicy:  flavorToChange.spicy.advancedBy(amount), umami: flavorToChange.umami.advancedBy(amount))
+        return updatedFlavor
+
     }
 }
 
@@ -191,4 +250,6 @@ class Pairing {
         return item.flavor.getProminentFlavor()
     }
 }
+
+
 

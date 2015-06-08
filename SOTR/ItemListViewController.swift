@@ -12,7 +12,7 @@ import SwiftyJSON
 class ItemListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchControllerDelegate, UISearchResultsUpdating{
 
     var items = [StogiesItem]()
-    
+    var allItems = [StogiesItem]()
     var sectionHeaders = [String]()
     var tableData = [String : [String]]()
     var filteredData:[String] = [String](){
@@ -31,7 +31,7 @@ class ItemListViewController: UIViewController, UITableViewDataSource, UITableVi
     var itemSearchController =  UISearchController()
     var activityIndicator = UIActivityIndicatorView()
     
-    
+        
     @IBOutlet weak var filterSegmentController: UISegmentedControl!
     
     @IBOutlet var tableView: UITableView!
@@ -65,7 +65,7 @@ class ItemListViewController: UIViewController, UITableViewDataSource, UITableVi
         })()
         
         
-        
+        filterSegmentController.addTarget(self, action: "updateTableData", forControlEvents: .ValueChanged)
         refreshTableData(items)
         var network = Network()
         if let flavorSliderSearchValues = receivedScores {
@@ -93,11 +93,13 @@ class ItemListViewController: UIViewController, UITableViewDataSource, UITableVi
                         for (index: String, item: JSON) in results["data"]{
                             var thisItem = Cigar(item: item)
                             newItems.append(thisItem)
+                            self.allItems.append(thisItem)
                         }
                     }else{
                         for (index: String, item: JSON) in results["data"]{
                             var thisItem = Spirit(item: item)
                             newItems.append(thisItem)
+                            self.allItems.append(thisItem)
                         }
                         
                     }
@@ -114,11 +116,13 @@ class ItemListViewController: UIViewController, UITableViewDataSource, UITableVi
                     for (index: String, item: JSON) in results["data"]{
                         var thisItem = Cigar(item: item)
                         newItems.append(thisItem)
+                        self.allItems.append(thisItem)
                     }
                 }else{
                     for (index: String, item: JSON) in results["data"]{
                         var thisItem = Spirit(item: item)
                         newItems.append(thisItem)
+                        self.allItems.append(thisItem)
                     }
                 }
                 self.refreshTableData(newItems)
@@ -307,6 +311,27 @@ class ItemListViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func flatten<T> (array: Array<[T]>) -> [T] {
         return array.reduce([T](), combine: +)
+    }
+    
+    func updateTableData(){
+        var updatedListOfItems = [StogiesItem]()
+        switch filterSegmentController.selectedSegmentIndex{
+        case 0:
+            println("Get all of item")
+            updatedListOfItems = allItems
+        case 1:
+            println("Get all of favorites")
+            updatedListOfItems = allItems
+        case 2:
+            println("Get recommended")
+            updatedListOfItems = allItems
+        default:
+            println("This should never happen")
+            updatedListOfItems = allItems
+        }
+        refreshTableData(updatedListOfItems)
+        
+        println(filterSegmentController.selectedSegmentIndex)
     }
     
 }

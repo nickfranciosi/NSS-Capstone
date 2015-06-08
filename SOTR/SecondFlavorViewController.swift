@@ -35,17 +35,17 @@ class SecondFlavorViewController: UIViewController {
     var typeChoice: ItemType!
     var recievedItem: StogiesItem!
     
-    
     var sliderValueMap:[UISlider:UILabel]!
     
     var pairing: Pairing?
     
+    var flavorChoices: [String : Int]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         choiceDescription.text! = recievedItem.getDescription()
-        setInitialButtonState()
+        
         
         sliderValueMap  = [
             saltySlider : saltyValueLabel,
@@ -60,6 +60,11 @@ class SecondFlavorViewController: UIViewController {
         }
 
       
+        setInitialButtonState()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        flavorChoices = nil
     }
 
     override func didReceiveMemoryWarning() {
@@ -80,31 +85,56 @@ class SecondFlavorViewController: UIViewController {
     
     
     @IBAction func mildSelected(sender: AnyObject) {
-        saltySlider.value = 1.0 as Float
-        updateSliderValues()
+    
         handleButtonState(mildButton, enableThis: strongButton)
+        var newFlavor = getFlavorProfileUpates()
+        updateSliderValues(newFlavor)
+        println("mild selected")
     }
     
     @IBAction func strongSelected(sender: AnyObject) {
-        updateSliderValues()
+        
         handleButtonState(strongButton, enableThis: mildButton)
+        var newFlavor = getFlavorProfileUpates()
+        updateSliderValues(newFlavor)
+         println("strong selected")
     }
 
     @IBAction func complimentSelected(sender: AnyObject) {
-        updateSliderValues()
         handleButtonState(complimentButton, enableThis: contrastButton)
+        var newFlavor = getFlavorProfileUpates()
+        updateSliderValues(newFlavor)
+        println("compliment selected")
 
     }
     @IBAction func contrastSelected(sender: AnyObject) {
-        updateSliderValues()
         handleButtonState(contrastButton, enableThis: complimentButton)
-
+        var newFlavor = getFlavorProfileUpates()
+        updateSliderValues(newFlavor)
+        println("contrast selected")
     }
     
     
     func handleButtonState(disableThis: StogiesButton, enableThis: StogiesButton){
         disableThis.enabled = false
         enableThis.enabled = true
+    }
+    
+    func getFlavorProfileUpates()->FlavorProfile{
+        if(!mildButton.enabled && !contrastButton.enabled){
+            return recievedItem.flavor.getMildAndContrast()
+        }
+        if(!mildButton.enabled && !complimentButton.enabled){
+           return recievedItem.flavor.getMildAndCompliment()
+        }
+        if(!strongButton.enabled && !contrastButton.enabled){
+            return recievedItem.flavor.getStrongAndContrast()
+        }
+        if(!strongButton.enabled && !complimentButton.enabled){
+            return recievedItem.flavor.getStrongAndCompliment()
+        }
+        
+        return recievedItem.flavor.getMildAndContrast()
     }
     
     
@@ -121,12 +151,16 @@ class SecondFlavorViewController: UIViewController {
         
     }
     
-    func updateSliderValues(){
-        saltySlider.value = 1.0 as Float
-        sweetSlider.value = 1.0 as Float
-        spicySlider.value = 1.0 as Float
-        bitterSlider.value = 1.0 as Float
-        umamiSlider.value = 1.0 as Float
+    func updateSliderValues(flavor: FlavorProfile){
+        saltySlider.setValue(Float(flavor.salty), animated: true)
+        sweetSlider.setValue(Float(flavor.sweet), animated: true)
+        spicySlider.setValue(Float(flavor.spicy), animated: true)
+        bitterSlider.setValue(Float(flavor.bitter), animated: true)
+        umamiSlider.setValue(Float(flavor.umami), animated: true)
+        
+        for slider in sliderValueMap.keys{
+            updateTextVauleWithSliderValue(slider)
+        }
     }
     
     @IBAction func showResultsClicked(sender: AnyObject) {
@@ -142,9 +176,17 @@ class SecondFlavorViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         var tableVC: ItemListViewController = segue.destinationViewController as! ItemListViewController
         
+        flavorChoices = [
+            "salty" : Int(saltySlider.value),
+            "sweet" : Int(sweetSlider.value),
+            "bitter" : Int(bitterSlider.value),
+            "spicy" : Int(spicySlider.value),
+            "umami" : Int(umamiSlider.value)
+        ]
         
+        tableVC.receivedScores = flavorChoices
         
-       tableVC.type = typeChoice
+        tableVC.type = typeChoice
         tableVC.receivedPairing = pairing
         
     }
@@ -156,6 +198,9 @@ class SecondFlavorViewController: UIViewController {
         label!.text = String(rating)
     }
 
-    
+   
+    func makeFlavorProfileStong(flavor: FlavorProfile){
+        var highest = flavor.getProminentFlavor()
+    }
     
 }

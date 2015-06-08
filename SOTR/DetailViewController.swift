@@ -57,7 +57,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         
         // simple line with custom x axis labels
-        var xLabels: [String] = ["Bitter", "Salty", "Sweet","Umami", "Spicy"]
+        var xLabels: [String] = ["Salty", "Sweet","Bitter", "Spicy", "Umami"]
         var yLabels: [String] = ["0", "1", "2","3", "4", "5"]
         
         lineChart = LineChart()
@@ -96,7 +96,10 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     }
     
-    
+//    override func viewDidAppear(animated: Bool) {
+//        pairing = nil
+//    }
+//    
     func updateSimItems(){
         self.similarItems = []
         let network = Network()
@@ -119,7 +122,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         // simple arrays
         updateSimItems()
         label.text = "\(currentItem.name.uppercaseString)"
-        var data: [CGFloat] = [CGFloat(currentItem.flavor.bitter), CGFloat(currentItem.flavor.salty), CGFloat(currentItem.flavor.sweet), CGFloat(currentItem.flavor.umami), CGFloat(currentItem.flavor.spicy)]
+        var data: [CGFloat] = [CGFloat(currentItem.flavor.salty), CGFloat(currentItem.flavor.sweet), CGFloat(currentItem.flavor.bitter), CGFloat(currentItem.flavor.spicy), CGFloat(currentItem.flavor.umami)]
         var maxXaxisSetter: [CGFloat] = [1,2,3,4,5]
         
         lineChart.addLine(maxXaxisSetter)
@@ -178,9 +181,11 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     @IBAction func itemSelected(sender: AnyObject) {
         if let selectedPairing = pairing{
-            if selectedPairing.hasFirstSelectionOnly() || selectedPairing.hasBothItemsSelected(){
+            if ((selectedPairing.hasFirstSelectionOnly() && currentItem.type == selectedPairing.getUnselectedType()) || selectedPairing.hasBothItemsSelected()){
               pairing!.addItem(currentItem)
               performSegueWithIdentifier("pairingView", sender: self)
+            }else{
+              performSegueWithIdentifier("secondSlider", sender: self)
             }
             
         }else{
@@ -211,6 +216,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         println(similarItems[indexPath.row].name)
         self.currentItem = similarItems[indexPath.row]
+        pairing?.addItem(similarItems[indexPath.row])
         lineChart.clearAll()
         updateItemData()
     }

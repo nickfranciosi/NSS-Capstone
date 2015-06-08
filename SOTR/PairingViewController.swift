@@ -52,12 +52,12 @@ class PairingViewController: UIViewController , LineChartDelegate {
         spiritName.text! = pairing!.spirit!.name!.uppercaseString
        
         // simple arrays
-        var data: [CGFloat] = [CGFloat(pairing!.cigar!.flavor.bitter), CGFloat(pairing!.cigar!.flavor.salty), CGFloat(pairing!.cigar!.flavor.sweet), CGFloat(pairing!.cigar!.flavor.umami), CGFloat(pairing!.cigar!.flavor.spicy)]
-         var data2: [CGFloat] = [CGFloat(pairing!.spirit!.flavor.bitter), CGFloat(pairing!.spirit!.flavor.salty), CGFloat(pairing!.spirit!.flavor.sweet), CGFloat(pairing!.spirit!.flavor.umami), CGFloat(pairing!.spirit!.flavor.spicy)]
+        var data: [CGFloat] = [CGFloat(pairing!.cigar!.flavor.salty), CGFloat(pairing!.cigar!.flavor.sweet), CGFloat(pairing!.cigar!.flavor.bitter),  CGFloat(pairing!.cigar!.flavor.spicy), CGFloat(pairing!.cigar!.flavor.umami)]
+         var data2: [CGFloat] = [CGFloat(pairing!.spirit!.flavor.salty), CGFloat(pairing!.spirit!.flavor.sweet), CGFloat(pairing!.spirit!.flavor.bitter), CGFloat(pairing!.spirit!.flavor.spicy), CGFloat(pairing!.spirit!.flavor.umami)]
         var maxXaxisSetter: [CGFloat] = [1,2,3,4,5]
         
         // simple line with custom x axis labels
-        var xLabels: [String] = ["Bitter", "Salty", "Sweet","Umami", "Spicy"]
+        var xLabels: [String] = ["Salty", "Sweet","Bitter", "Spicy", "Umami"]
         var yLabels: [String] = ["0", "1", "2","3", "4", "5"]
         
         lineChart = LineChart()
